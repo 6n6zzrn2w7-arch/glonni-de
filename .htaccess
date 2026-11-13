@@ -1,17 +1,39 @@
 # glonni.de – Einstellungen für IONOS Webhosting (Apache)
 
-# ---- Passwortschutz für die gesamte Website ----
+# ---- 1) Immer auf https://glonni.de umleiten (vor der Passwortabfrage) ----
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{SERVER_PORT} !=443
+RewriteRule ^ https://glonni.de%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://glonni.de%{REQUEST_URI} [R=301,L]
+
+# ---- 2) Passwortschutz für die gesamte Website (nur über https) ----
 # Benutzer: glonni  ·  Passwort wird nur als Prüfsumme gespeichert.
-# Zum Entfernen (Website öffentlich machen) diesen Block bis "Ende Passwortschutz" löschen.
-AuthType Basic
-AuthName "Glonni Cup - geschuetzter Entwurf"
-AuthBasicProvider file
-AuthUserFile /dev/null
-<RequireAny>
-  Require expr "sha1(%{HTTP:Authorization}) == '39fdeda45596c24d94b398045739016999381cf7'"
-  Require valid-user
-</RequireAny>
+# Zum Entfernen (Website öffentlich machen) diesen <If>-Block löschen.
+<If "(%{HTTPS} == 'on' || %{SERVER_PORT} == '443') && !(%{HTTP_HOST} =~ /^www\./i)">
+  AuthType Basic
+  AuthName "Glonni Cup - geschuetzter Entwurf"
+  AuthBasicProvider file
+  AuthUserFile /dev/null
+  <RequireAny>
+    Require expr "sha1(%{HTTP:Authorization}) == '39fdeda45596c24d94b398045739016999381cf7'"
+    Require valid-user
+  </RequireAny>
+</If>
 # ---- Ende Passwortschutz ----
+
+# ---- 3) Sicherheits-Header ----
+<IfModule mod_headers.c>
+  <If "%{HTTPS} == 'on' || %{SERVER_PORT} == '443'">
+    # HSTS: zunächst 5 Minuten, nach erfolgreichem Test auf 1 Jahr (31536000) erhöhen
+    Header always set Strict-Transport-Security "max-age=300"
+  </If>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+</IfModule>
 
 AddDefaultCharset utf-8
 AddType text/calendar .ics

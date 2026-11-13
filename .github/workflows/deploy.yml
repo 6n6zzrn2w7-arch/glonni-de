@@ -58,9 +58,9 @@ jobs:
           echo "== DNS =="
           for h in glonni.de www.glonni.de; do echo "$h A:    $(dig +short $h A | tr '\n' ' ')"; echo "$h CNAME: $(dig +short $h CNAME | tr '\n' ' ')"; done
           echo "NS: $(dig +short glonni.de NS | tr '\n' ' ')"
-          for u in https://glonni.de/ https://www.glonni.de/ http://glonni.de/ https://glonni.de/gelaende.html; do
+          for u in https://glonni.de/ https://www.glonni.de/ http://glonni.de/ http://www.glonni.de/karte.html https://glonni.de/gelaende.html; do
             echo "== $u =="
-            curl -sS -o /dev/null -D - --max-time 25 "$u" 2>&1 | grep -iE '^curl|^(HTTP/|server:|www-authenticate:|location:|x-nf-|content-type:)' || echo "keine Antwort"
+            curl -sS -o /dev/null -D - --max-time 25 "$u" 2>&1 | grep -iE '^curl|^(HTTP/|www-authenticate:|location:|strict-transport-security:|x-frame-options:)' || echo "keine Antwort"
           done
           echo "== SSL-Zertifikat glonni.de =="
           echo | openssl s_client -servername glonni.de -connect glonni.de:443 2>/dev/null | openssl x509 -noout -subject -issuer -dates -ext subjectAltName 2>/dev/null || echo "kein gültiges Zertifikat abrufbar"
@@ -70,11 +70,3 @@ jobs:
           echo "== Inhalt Startseite (Titel) =="
           curl -s --max-time 20 https://glonni.de/ | grep -o '<title>[^<]*</title>' || true
 
-      - name: HTTPS-Diagnose
-        if: always()
-        continue-on-error: true
-        run: |
-          echo "== HTTP/1.1 =="; curl -sS --http1.1 -o /dev/null -D - --max-time 20 https://glonni.de/ 2>&1 | head -8 || true
-          echo "== HTTP/2 verbose (gekürzt) =="; curl -sS --http2 -v -o /dev/null --max-time 20 https://glonni.de/ 2>&1 | grep -E "ALPN|SSL connection|HTTP/|< |timed out|Connected" | head -15 || true
-          echo "== Roh-Anfrage über TLS =="; printf 'GET / HTTP/1.1\r\nHost: glonni.de\r\nConnection: close\r\n\r\n' | timeout 20 openssl s_client -quiet -servername glonni.de -connect glonni.de:443 2>&1 | head -12 || true
-          echo "== IPv6? =="; dig +short glonni.de AAAA
