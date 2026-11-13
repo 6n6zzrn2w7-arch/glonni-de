@@ -1,0 +1,37 @@
+# glonni.de – Einstellungen für IONOS Webhosting (Apache)
+
+# ---- Passwortschutz für die gesamte Website ----
+# Benutzer: glonni  ·  Passwort wird nur als Prüfsumme gespeichert.
+# Zum Entfernen (Website öffentlich machen) diesen Block bis "Ende Passwortschutz" löschen.
+AuthType Basic
+AuthName "Glonni Cup - geschuetzter Entwurf"
+AuthBasicProvider file
+AuthUserFile /dev/null
+<RequireAny>
+  Require expr "sha1(%{HTTP:Authorization}) == '39fdeda45596c24d94b398045739016999381cf7'"
+  Require valid-user
+</RequireAny>
+# ---- Ende Passwortschutz ----
+
+AddDefaultCharset utf-8
+AddType text/calendar .ics
+AddType video/mp4 .mp4
+AddType image/webp .webp
+AddType font/woff2 .woff2
+
+# Alte Links ohne Endung weiter unterstützen: /orga-team -> /orga-team.html
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# Browser-Cache: Videos, Bilder und Schriften lange, Seiten kurz
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType video/mp4 "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

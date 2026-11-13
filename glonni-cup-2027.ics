@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//WSV Glonn//Glonni Cup//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Glonni Cup 2027
+BEGIN:VEVENT
+UID:glonni-cup-2027@wsv-glonn
+DTSTAMP:20261112T120000Z
+DTSTART:20270117T073000Z
+DTEND:20270117T130000Z
+SUMMARY:Glonni Cup 2027 – Zwergerl-Skirennen des WSV Glonn
+DESCRIPTION:Das Zwergerl-Skirennen des WSV Glonn für Kinder U4 bis U10. S
+ paß statt Druck!\n\nAnmeldung & Warm-up ab ca. 08:30 Uhr\, Rennstart ca. 
+ 10:00 Uhr\, danach Siegerehrung und Familienprogramm. Die genauen Zeiten un
+ d der Austragungsort folgen.\n\nKontakt: info@glonni.de
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Morgen ist Glonni Cup! Ski wachsen nicht vergessen.
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

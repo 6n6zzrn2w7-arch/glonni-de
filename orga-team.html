@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORGA Team – Glonni Cup · WSV Glonn</title>
+<meta name="description" content="Das ORGA Team hinter dem Glonni Cup 2027 – dem Zwergerl-Skirennen des WSV Glonn für Kinder U4 bis U10.">
+<meta name="theme-color" content="#0D47A1">
+<meta property="og:title" content="ORGA Team – Glonni Cup 2027">
+<meta property="og:description" content="Die Menschen hinter dem Zwergerl-Skirennen des WSV Glonn.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230D47A1'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial' font-weight='900' font-size='38' text-anchor='middle' fill='white'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{
+  --navy:#0D47A1; --deep:#082C66; --blue:#1565C0; --sky:#42A5F5; --ice:#EAF3FC; --snow:#F7FAFD;
+  --yellow:#FFC629; --ink:#10233F; --muted:#4A5D7A;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --brush:"Permanent Marker","Comic Sans MS",cursive;
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{font-family:var(--body);color:var(--ink);background:var(--snow);line-height:1.55;font-size:18px;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:.01em;text-transform:uppercase}
+h2{font-size:clamp(2.6rem,7vw,4.6rem);color:var(--navy)}
+h3{font-size:1.5rem;color:var(--navy)}
+.kicker{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.18em;font-size:.9rem;color:var(--blue);margin-bottom:.8rem;display:block}
+.brush{font-family:var(--brush);display:inline-block;background:var(--yellow);color:var(--navy);padding:.35em .8em .3em;transform:rotate(-2.5deg);
+  clip-path:polygon(2% 8%,30% 0,62% 6%,98% 0,100% 55%,97% 100%,60% 94%,28% 100%,0 96%,3% 50%);line-height:1.15}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:1.15rem;
+  padding:.85em 1.5em;border-radius:999px;text-decoration:none;transition:transform .2s cubic-bezier(.3,1.6,.5,1),box-shadow .2s;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-3px) rotate(-1deg)}
+.btn-y{background:var(--yellow);color:var(--navy);box-shadow:0 6px 0 #C99300}
+.btn-y:hover{box-shadow:0 9px 0 #C99300}
+.btn-n{background:var(--navy);color:#fff;box-shadow:0 6px 0 var(--deep)}
+.btn svg{width:1.1em;height:1.1em}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s,padding .3s;padding:18px 0}
+.nav.solid{background:rgba(8,44,102,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,.15);padding:10px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.9rem;color:#fff;text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:.4em}
+.logo .crest{flex:none;width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 3px 12px rgba(0,0,0,.18);transition:width .3s,height .3s}
+.logo .crest img{width:84%;height:84%;object-fit:contain}
+.nav.solid .logo .crest{width:44px;height:44px}
+.logo .lt{line-height:1}
+.logo small{font-size:.75rem;letter-spacing:.2em;opacity:.8;font-weight:600;border-left:2px solid rgba(255,255,255,.4);padding-left:.7em;line-height:1.1}
+.nav .btn{font-size:.95rem;padding:.6em 1.2em}
+@media (max-width:820px){.logo{font-size:1.6rem;gap:.35em}.logo small{font-size:.62rem;padding-left:.55em}.logo .crest{width:44px;height:44px}}
+@media (max-width:400px){.logo{font-size:1.4rem}.logo small{display:none}.nav .btn{font-size:.82rem;padding:.5em .9em}}
+
+/* HERO */
+.phero{position:relative;background:radial-gradient(120% 80% at 70% 30%,#2A6FD0 0%,var(--navy) 45%,var(--deep) 100%);color:#fff;overflow:hidden;padding:170px 0 150px;text-align:center}
+.phero h1{font-size:clamp(3.8rem,12vw,8rem);text-shadow:0 6px 0 rgba(0,0,0,.18)}
+.phero h1 .l2{color:var(--yellow)}
+.phero .kicker{color:var(--yellow)}
+.phero .brush{font-size:clamp(1.05rem,2.4vw,1.45rem);margin:1.1rem 0 1.4rem}
+.phero p{font-size:1.2rem;max-width:34em;margin:0 auto;opacity:.92}
+.flakes{position:absolute;inset:0;pointer-events:none}
+.flakes i{position:absolute;top:-20px;color:#fff;opacity:.6;animation:fall linear infinite;font-style:normal}
+@keyframes fall{to{transform:translateY(560px) rotate(360deg);opacity:0}}
+.mtn{position:absolute;left:0;right:0;bottom:-2px;pointer-events:none}
+.mtn svg{display:block;width:100%;height:auto}
+
+/* TEAM */
+section{position:relative;padding:90px 0 110px}
+.team .center{text-align:center;max-width:760px;margin:0 auto}
+.team .center p{color:var(--muted);font-size:1.15rem;margin-top:1rem}
+.members{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px;margin-top:56px}
+.member{background:#fff;border-radius:var(--r);padding:30px 20px 26px;text-align:center;box-shadow:0 2px 0 #DCE6F3,0 10px 30px rgba(13,71,161,.06);transition:transform .3s cubic-bezier(.3,1.5,.5,1)}
+.member:hover{transform:translateY(-8px) rotate(-.6deg)}
+.avatar{width:128px;height:128px;margin:0 auto 18px;border-radius:50%;background:var(--ice);border:3px dashed #BFD2EA;display:grid;place-items:center;overflow:hidden;position:relative}
+.avatar svg{width:64%;height:64%;color:#A9C1E0;margin-top:14%}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.member:nth-child(odd) .avatar{border-color:#FFD75E}
+.member h3{font-size:1.45rem}
+.member .role{font-family:var(--brush);color:var(--blue);font-size:1.05rem;margin-top:.35rem;line-height:1.2}
+.member p{color:var(--muted);font-size:.95rem;margin-top:.6rem}
+.member.ph h3,.member.ph .role{opacity:.55}
+
+.join{margin-top:70px;background:var(--yellow);border-radius:28px;padding:40px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;transform:rotate(-.6deg)}
+.join h3{font-size:clamp(1.8rem,4vw,2.4rem)}
+.join p{color:var(--ink);margin-top:.4rem;max-width:32em}
+@media (max-width:640px){.join{text-align:center;justify-content:center}}
+
+/* FOOTER */
+footer{background:var(--deep);color:#fff;padding:40px 0}
+footer .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:.95rem;opacity:.8}
+footer .meta a{text-decoration:none;margin-left:20px}
+footer .meta a:first-child{margin-left:0}
+footer .meta a:hover{color:var(--yellow)}
+@media (max-width:640px){footer .meta{justify-content:center;text-align:center}}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+/* Under-construction */
+.uc-tape{position:fixed;right:-70px;bottom:44px;z-index:9001;pointer-events:none;transform:rotate(-35deg);width:340px;text-align:center;
+  padding:9px 0;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:.95rem;color:var(--ink);
+  background:repeating-linear-gradient(-45deg,var(--yellow) 0 18px,#FFD75E 18px 36px);border-top:4px solid var(--ink);border-bottom:4px solid var(--ink);
+  box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.uc-tape span{background:var(--yellow);padding:2px 10px}
+@media (max-width:600px){.uc-tape{right:-88px;bottom:30px;font-size:.78rem;width:300px}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1!important;transform:none!important}
+  .flakes{display:none}
+}
+</style>
+</head>
+<body>
+<div class="uc-tape" role="note" aria-label="Hinweis: Diese Webseite befindet sich noch im Aufbau"><span>🚧 Im Aufbau 🚧</span></div>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Glonni Cup – WSV Glonn, zur Startseite"><span class="crest"><img src="media/wsv-wappen.png" alt="WSV Glonn Wappen" width="235" height="234" decoding="async"></span><span class="lt">GLONNI</span> <small>WSV<br>GLONN</small></a>
+    <a class="btn btn-y" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>Zur Startseite</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="flakes" id="flakes" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <span class="kicker">Glonni Cup 2027 · WSV Glonn</span>
+    <h1>ORGA <span class="l2">Team</span></h1>
+    <div class="brush">Die Menschen hinter dem Zwergerl-Skirennen</div>
+    <p>Damit unsere Pistenheldinnen und Pistenhelden von U4 bis U10 einen unvergesslichen Renntag erleben, packt ein engagiertes Team aus dem WSV Glonn mit an.</p>
+  </div>
+  <div class="mtn" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#F7FAFD" d="M0 120V70l120-38 110 30 140-52 130 46 120-28 150 50 140-60 130 40 150-34 130 36 120-22v80z"/></svg>
+  </div>
+</header>
+
+<main>
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker rv">Unser Team</span>
+      <h2 class="rv d1">Gemeinsam für den Glonni Cup</h2>
+      <p class="rv d2">Hier stellen wir euch bald das Organisationsteam vor – mit Namen, Foto und Aufgabe.</p>
+    </div>
+
+    <!--
+      Platzhalter für 6–10 Personen.
+      Pro Person eine <article class="member">-Karte ausfüllen:
+        - Foto: im .avatar das <svg> durch <img src="media/NAME.jpg" alt="NAME"> ersetzen
+        - Name in <h3>, Aufgabe in .role, kurzer Satz in <p>
+        - Wenn die Karte ausgefüllt ist, die Klasse "ph" entfernen.
+      Nicht benötigte Karten (7–10) einfach löschen.
+    -->
+    <div class="members">
+      <article class="member ph rv"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Rennleitung</div><p>Kurzer Satz zur Person folgt.</p></article>
+      <article class="member ph rv d1"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Organisation</div><p>Kurzer Satz zur Person folgt.</p></article>
+      <article class="member ph rv d2"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Anmeldung &amp; Startnummern</div><p>Kurzer Satz zur Person folgt.</p></article>
+      <article class="member ph rv d3"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Strecke &amp; Kurssetzung</div><p>Kurzer Satz zur Person folgt.</p></article>
+      <article class="member ph rv"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Zeitnahme</div><p>Kurzer Satz zur Person folgt.</p></article>
+      <article class="member ph rv d1"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Siegerehrung &amp; Giveaways</div><p>Kurzer Satz zur Person folgt.</p></article>
+      <article class="member ph rv d2"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Partner &amp; Sponsoring</div><p>Kurzer Satz zur Person folgt.</p></article>
+      <article class="member ph rv d3"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Verpflegung</div><p>Kurzer Satz zur Person folgt.</p></article>
+      <article class="member ph rv"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Helferkoordination</div><p>Kurzer Satz zur Person folgt.</p></article>
+      <article class="member ph rv d1"><div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="5"/><path d="M2 24c0-6 4.5-10 10-10s10 4 10 10z"/></svg></div><h3>Name folgt</h3><div class="role">Social Media &amp; Fotos</div><p>Kurzer Satz zur Person folgt.</p></article>
+    </div>
+
+    <div class="join rv">
+      <div>
+        <h3>Lust mitzuhelfen?</h3>
+        <p>Am Renntag freuen wir uns über jede helfende Hand – an der Strecke, bei der Startnummernausgabe oder an der Siegerehrung.</p>
+      </div>
+      <a class="btn btn-n" href="mailto:info@glonni.de?subject=Helfen%20beim%20Glonni%20Cup">Melde dich bei uns</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="meta">
+      <span>© <span id="yr">2026</span> WSV Glonn · Glonni Cup</span>
+      <span><a href="index.html">Startseite</a><a href="gelaende.html">Sponsoring</a><a href="index.html#impressum">Impressum</a><a href="index.html#datenschutz">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  function onNav(){nav.classList.toggle('solid',window.scrollY>40)}
+  onNav(); window.addEventListener('scroll',onNav,{passive:true});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    var f=document.getElementById('flakes');
+    for(var i=0;i<26;i++){
+      var s=document.createElement('i'); s.textContent='❄';
+      s.style.left=(Math.random()*100)+'%';
+      s.style.fontSize=(8+Math.random()*14)+'px';
+      s.style.animationDuration=(7+Math.random()*8)+'s';
+      s.style.animationDelay=(-Math.random()*12)+'s';
+      f.appendChild(s);
+    }
+  }
+
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
