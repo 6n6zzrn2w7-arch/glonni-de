@@ -68,7 +68,7 @@ jobs:
             printf "%s  ->  " "$u"; curl -sS -o /dev/null --max-time 25 -w "HTTP %{http_code}, SSL-Prüfung %{ssl_verify_result} (0 = ok)\n" "$u" 2>&1 || true
           done
           echo "== https-Stabilität (12 Versuche) =="
-          ok=0; for n in $(seq 1 12); do c=$(curl -s -o /dev/null --max-time 12 -w "%{http_code}" https://glonni.de/ 2>/dev/null); ip=$(curl -s -o /dev/null --max-time 12 -w "%{remote_ip}" https://glonni.de/robots.txt 2>/dev/null); echo "Versuch $n: $c"; [ "$c" = "401" ] && ok=$((ok+1)); done; echo "Erfolgreich: $ok von 12"
+          set +e; ok=0; for n in $(seq 1 12); do c=$(curl -4 -s -o /dev/null --max-time 12 -w "%{http_code} in %{time_total}s via %{remote_ip}" https://glonni.de/ 2>/dev/null); echo "Versuch $n: $c"; case "$c" in 401*) ok=$((ok+1));; esac; done; echo "Erfolgreich: $ok von 12"
           echo "== Inhalt Startseite (Titel) =="
           curl -s --max-time 20 https://glonni.de/ | grep -o '<title>[^<]*</title>' || true
 
