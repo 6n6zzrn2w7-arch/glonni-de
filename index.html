@@ -153,6 +153,19 @@ h3{font-size:1.5rem;color:var(--navy)}
   .globe{width:min(86%,420px);order:-1;margin-top:10px}
   .globe .badge{width:96px;height:96px;font-size:.85rem}
   .hero .brush{font-size:1rem}
+  /* Handy: Video rechteckig, bildschirmfüllend */
+  .hero{padding-top:0;align-items:flex-start}
+  .hero .wrap{gap:28px}
+  .globe{order:-1;width:100vw;max-width:none;margin:0 calc(50% - 50vw);aspect-ratio:auto;height:100vh;height:100svh;justify-self:stretch}
+  .globe .ring,.globe .ring2{display:none}
+  .globe .disc{border-radius:0;box-shadow:none;background:var(--deep)}
+  .globe .skier{object-position:50% 50%}
+  .globe .disc::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(to bottom,rgba(8,44,102,0),var(--deep));pointer-events:none}
+  .globe .disc::before{content:"";position:absolute;inset:0 0 auto 0;height:120px;background:linear-gradient(to top,rgba(8,44,102,0),rgba(8,44,102,.55));z-index:1;pointer-events:none}
+  .globe .badge{right:16px;bottom:72px;transform:rotate(10deg)}
+  .globe .snd{left:16px;bottom:80px}
+  .globe.enter{animation:vfade 1s ease .1s forwards}
+  @keyframes vfade{from{opacity:0}to{opacity:1}}
 }
 
 /* MARQUEE */
