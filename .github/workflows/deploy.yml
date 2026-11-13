@@ -60,12 +60,12 @@ jobs:
           echo "NS: $(dig +short glonni.de NS | tr '\n' ' ')"
           for u in https://glonni.de/ https://www.glonni.de/ http://glonni.de/ https://glonni.de/gelaende.html; do
             echo "== $u =="
-            curl -s -o /dev/null -D - --max-time 20 "$u" | grep -iE '^(HTTP/|server:|www-authenticate:|location:|x-nf-|content-type:)' || echo "keine Antwort"
+            curl -sS -o /dev/null -D - --max-time 25 "$u" 2>&1 | grep -iE '^curl|^(HTTP/|server:|www-authenticate:|location:|x-nf-|content-type:)' || echo "keine Antwort"
           done
           echo "== SSL-Zertifikat glonni.de =="
           echo | openssl s_client -servername glonni.de -connect glonni.de:443 2>/dev/null | openssl x509 -noout -subject -issuer -dates -ext subjectAltName 2>/dev/null || echo "kein gültiges Zertifikat abrufbar"
           for u in https://glonni.de/ https://www.glonni.de/; do
-            printf "%s  ->  " "$u"; curl -s -o /dev/null --max-time 20 -w "HTTP %{http_code}, SSL-Prüfung %{ssl_verify_result} (0 = ok)\n" "$u" || echo "Fehler (Zertifikat ungültig?)"
+            printf "%s  ->  " "$u"; curl -sS -o /dev/null --max-time 25 -w "HTTP %{http_code}, SSL-Prüfung %{ssl_verify_result} (0 = ok)\n" "$u" 2>&1 || true
           done
           echo "== Inhalt Startseite (Titel) =="
           curl -s --max-time 20 https://glonni.de/ | grep -o '<title>[^<]*</title>' || true
