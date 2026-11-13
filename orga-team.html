@@ -113,6 +113,29 @@ footer .meta a:hover{color:var(--yellow)}
   .rv{opacity:1!important;transform:none!important}
   .flakes{display:none}
 }
+
+/* ===== Einheitlicher Button-Stil (wie „Anmelden“) ===== */
+.btn{position:relative;overflow:hidden;isolation:isolate;border:2px solid rgba(16,35,63,.9);letter-spacing:.07em}
+.btn::after{content:"";position:absolute;top:-20%;bottom:-20%;left:-60%;width:45%;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:btnshine 5s ease-in-out 2s infinite}
+@keyframes btnshine{0%,72%{left:-60%}100%{left:130%}}
+.btn-y{background:linear-gradient(180deg,#FFE58A 0%,#FFC629 52%,#F2A900 100%);color:#10233F;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.65),inset 0 -3px 0 rgba(160,100,0,.25),0 4px 0 #9C6B00,0 10px 22px rgba(4,22,56,.25)}
+.btn-n{background:linear-gradient(180deg,#2F73DA 0%,#1554B8 52%,#0B3E8F 100%);color:#fff;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.35),inset 0 -3px 0 rgba(0,0,0,.2),0 4px 0 #062A63,0 10px 22px rgba(4,22,56,.25)}
+.btn-n::after{background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent)}
+.btn-o,.btn-l{background:linear-gradient(180deg,#FFFFFF 0%,#F1F5FB 55%,#DCE6F3 100%);color:#0D47A1;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.9),inset 0 -3px 0 rgba(13,71,161,.12),0 4px 0 #8FA6C6,0 10px 22px rgba(4,22,56,.2)}
+.btn-y:hover,.btn-n:hover,.btn-o:hover,.btn-l:hover{transform:translateY(-2px) rotate(-1deg)}
+.btn-y:hover{box-shadow:inset 0 2px 0 rgba(255,255,255,.65),inset 0 -3px 0 rgba(160,100,0,.25),0 6px 0 #9C6B00,0 14px 28px rgba(4,22,56,.3)}
+.btn-n:hover{box-shadow:inset 0 2px 0 rgba(255,255,255,.35),inset 0 -3px 0 rgba(0,0,0,.2),0 6px 0 #062A63,0 14px 28px rgba(4,22,56,.3)}
+.btn-o:hover,.btn-l:hover{box-shadow:inset 0 2px 0 rgba(255,255,255,.9),inset 0 -3px 0 rgba(13,71,161,.12),0 6px 0 #8FA6C6,0 14px 28px rgba(4,22,56,.25)}
+.btn-y:active,.btn-n:active,.btn-o:active,.btn-l:active{transform:translateY(3px);filter:brightness(.97)}
+.btn-y:active{box-shadow:inset 0 2px 0 rgba(255,255,255,.5),0 1px 0 #9C6B00,0 4px 10px rgba(4,22,56,.25)}
+.btn-n:active{box-shadow:inset 0 2px 0 rgba(255,255,255,.3),0 1px 0 #062A63,0 4px 10px rgba(4,22,56,.25)}
+.btn-o:active,.btn-l:active{box-shadow:inset 0 2px 0 rgba(255,255,255,.9),0 1px 0 #8FA6C6,0 4px 10px rgba(4,22,56,.2)}
+.nav ul a.btn-y,.nav ul a.btn-y:hover{color:#10233F;opacity:1}
+@media (prefers-reduced-motion:reduce){.btn::after{animation:none;display:none}}
 </style>
 </head>
 <body>
