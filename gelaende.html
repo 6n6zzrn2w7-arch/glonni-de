@@ -87,7 +87,8 @@ h3{font-size:1.5rem;color:var(--navy)}
   touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 .mapview.zoomed{touch-action:none}
 .mapview.dragging{cursor:grabbing}
-.stage{position:absolute;left:0;top:0;width:1000px;height:1250px;transform-origin:0 0}
+.stage{position:absolute;left:0;top:0;width:2600px;height:1250px;transform-origin:0 0}
+.stage .pins{left:800px;width:1000px;right:auto}
 .stage.anim{transition:transform .3s cubic-bezier(.2,.9,.3,1)}
 .stage svg{display:block;width:100%;height:100%}
 #snowmap{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
@@ -323,13 +324,13 @@ dialog.req .x{position:absolute;right:14px;top:12px;width:40px;height:40px;borde
       </div>
       <div class="mapview" id="mapview" aria-label="Geländekarte. Mit zwei Fingern, Mausrad oder den Plus- und Minus-Knöpfen zoomen, gezoomt mit dem Finger verschieben.">
         <div class="stage" id="stage">
-          <svg viewBox="0 0 1000 1250" xmlns="http://www.w3.org/2000/svg" id="mapsvg" role="img" aria-label="Illustrierte Karte des Veranstaltungsgeländes am Skilift Tenneladen in Niederau">
+          <svg viewBox="-800 0 2600 1250" xmlns="http://www.w3.org/2000/svg" id="mapsvg" role="img" aria-label="Illustrierte Karte des Veranstaltungsgeländes am Skilift Tenneladen in Niederau">
 <defs>
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E9BE0"/><stop offset=".55" stop-color="#A9CDF3"/><stop offset="1" stop-color="#E4F0FC"/></linearGradient>
-<linearGradient id="snowg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EAF2FB"/><stop offset=".5" stop-color="#F7FAFE"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
-<linearGradient id="mtn1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FB4DE"/><stop offset="1" stop-color="#C9DCF2"/></linearGradient>
-<linearGradient id="mtn2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6E97C8"/><stop offset="1" stop-color="#AFC8E6"/></linearGradient>
-<linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3F6A8E"/><stop offset="1" stop-color="#5D86A8"/></linearGradient>
+<linearGradient id="sky" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1250"><stop offset="0" stop-color="#5E9BE0"/><stop offset=".55" stop-color="#A9CDF3"/><stop offset="1" stop-color="#E4F0FC"/></linearGradient>
+<linearGradient id="snowg" gradientUnits="userSpaceOnUse" x1="0" y1="380" x2="0" y2="1250"><stop offset="0" stop-color="#EAF2FB"/><stop offset=".5" stop-color="#F7FAFE"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+<linearGradient id="mtn1" gradientUnits="userSpaceOnUse" x1="0" y1="90" x2="0" y2="330"><stop offset="0" stop-color="#8FB4DE"/><stop offset="1" stop-color="#C9DCF2"/></linearGradient>
+<linearGradient id="mtn2" gradientUnits="userSpaceOnUse" x1="0" y1="190" x2="0" y2="420"><stop offset="0" stop-color="#6E97C8"/><stop offset="1" stop-color="#AFC8E6"/></linearGradient>
+<linearGradient id="hill" gradientUnits="userSpaceOnUse" x1="0" y1="250" x2="0" y2="520"><stop offset="0" stop-color="#3F6A8E"/><stop offset="1" stop-color="#5D86A8"/></linearGradient>
 <pattern id="cord" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-70)"><rect width="10" height="10" fill="#FFFFFF"/><rect width="10" height="2" fill="#EEF4FB"/></pattern>
 <pattern id="net" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#FFD23F"/><path d="M0 0L8 8M8 0L0 8" stroke="#F08A24" stroke-width="1.4"/></pattern>
 <pattern id="asph" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#DCE3EC"/><circle cx="3" cy="4" r="1" fill="#CBD4E0"/><circle cx="10" cy="11" r="1.2" fill="#E8EDF3"/></pattern>
@@ -340,11 +341,166 @@ dialog.req .x{position:absolute;right:14px;top:12px;width:40px;height:40px;borde
 <g id="bare"><path d="M0 8 V-30 M0-14 L-12-28 M0-20 L10-34 M0-6 L11-16 M-6-21 L-10-36 M5-27 L4-40" stroke="#7A6A5E" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
 <g id="chalet"><path d="M-22 0 V-18 H22 V0Z" fill="#E9D6B8" stroke="#0D3B7A" stroke-width="2"/><path d="M-27-16 L0-34 L27-16Z" fill="#C8513A" stroke="#0D3B7A" stroke-width="2" stroke-linejoin="round"/><path d="M-25-17 L0-33 L25-17 L18-19 L0-29 L-18-19Z" fill="#fff"/><rect x="-14" y="-13" width="7" height="7" fill="#FFD46B" stroke="#0D3B7A" stroke-width="1.5"/><rect x="6" y="-13" width="7" height="7" fill="#FFD46B" stroke="#0D3B7A" stroke-width="1.5"/></g>
 </defs>
-<rect width="1000" height="1250" fill="url(#sky)"/>
+<rect x="-800" width="2600" height="1250" fill="url(#sky)"/>
+<g class="clouds"><g class="cl2"><ellipse cx="-520" cy="80" rx="80" ry="18" fill="#fff" opacity=".8"/><ellipse cx="-480" cy="68" rx="40" ry="16" fill="#fff" opacity=".85"/></g><g class="cl1"><ellipse cx="1420" cy="60" rx="70" ry="18" fill="#fff" opacity=".85"/><ellipse cx="1460" cy="50" rx="36" ry="15" fill="#fff" opacity=".9"/></g></g>
 <g class="clouds"><g class="cl1"><ellipse cx="160" cy="70" rx="70" ry="20" fill="#fff" opacity=".85"/><ellipse cx="200" cy="58" rx="40" ry="18" fill="#fff" opacity=".9"/></g><g class="cl2"><ellipse cx="760" cy="95" rx="80" ry="18" fill="#fff" opacity=".8"/><ellipse cx="720" cy="84" rx="38" ry="16" fill="#fff" opacity=".85"/></g></g>
 <path d="M0 230 L90 150 L170 200 L260 110 L360 190 L450 130 L540 175 L640 95 L740 170 L830 120 L920 180 L1000 140 V330 H0Z" fill="url(#mtn1)"/>
+<path d="M-800 200 L-700 140 L-610 190 L-500 100 L-400 170 L-300 120 L-200 190 L-100 150 L6 234 V330 H-800Z M994 144 L1090 190 L1180 110 L1290 180 L1380 88 L1480 160 L1570 120 L1680 190 L1800 150 V330 H994Z" fill="url(#mtn1)"/>
+<path d="M-500 100 L-524 124 L-508 120 L-498 132 L-484 118 L-472 126Z M1380 88 L1354 114 L1372 110 L1382 122 L1398 108 L1410 114Z M1180 110 L1160 130 L1174 127 L1182 136 L1194 126 L1204 131Z" fill="#fff"/>
 <path d="M260 110 L232 136 L250 132 L262 144 L276 130 L290 138Z M640 95 L612 122 L630 118 L642 130 L656 116 L670 124Z M830 120 L806 142 L822 139 L832 150 L846 138 L856 144Z" fill="#fff"/>
+<path d="M-800 280 C-600 240 -400 270 -200 250 C-100 240 -40 290 6 301 V420 H-800Z M994 200 C1150 190 1300 230 1450 210 C1600 190 1700 230 1800 220 V420 H994Z" fill="url(#mtn2)"/>
 <path d="M0 300 C120 240 200 250 300 225 C420 196 520 236 610 214 C720 188 820 222 1000 200 V420 H0Z" fill="url(#mtn2)"/>
+<path d="M-800 330 C-600 290 -400 340 -200 320 C-100 310 -40 350 6 359 V520 H-800Z M994 251 C1200 240 1350 290 1500 270 C1650 250 1750 280 1800 280 V520 H994Z" fill="url(#hill)"/>
+<use href="#fir" transform="translate(1750 300) scale(0.35)"/>
+<use href="#fir" transform="translate(-314 300) scale(0.35)"/>
+<use href="#fir" transform="translate(-211 301) scale(0.35)"/>
+<use href="#fir" transform="translate(1287 301) scale(0.35)"/>
+<use href="#fir" transform="translate(-694 301) scale(0.35)"/>
+<use href="#fir" transform="translate(1780 302) scale(0.35)"/>
+<use href="#fir" transform="translate(-16 303) scale(0.35)"/>
+<use href="#fir" transform="translate(1048 306) scale(0.36)"/>
+<use href="#fir" transform="translate(1640 307) scale(0.36)"/>
+<use href="#fir" transform="translate(1445 307) scale(0.36)"/>
+<use href="#fir" transform="translate(1680 309) scale(0.36)"/>
+<use href="#fir" transform="translate(1399 311) scale(0.36)"/>
+<use href="#fir" transform="translate(1500 311) scale(0.36)"/>
+<use href="#fir" transform="translate(-464 312) scale(0.36)"/>
+<use href="#fir" transform="translate(-435 313) scale(0.36)"/>
+<use href="#fir" transform="translate(-66 313) scale(0.36)"/>
+<use href="#fir" transform="translate(-398 315) scale(0.37)"/>
+<use href="#fir" transform="translate(-372 317) scale(0.37)"/>
+<use href="#fir" transform="translate(1178 318) scale(0.37)"/>
+<use href="#fir" transform="translate(1208 319) scale(0.37)"/>
+<use href="#fir" transform="translate(-268 321) scale(0.37)"/>
+<use href="#fir" transform="translate(1120 323) scale(0.38)"/>
+<use href="#fir" transform="translate(-34 323) scale(0.38)"/>
+<use href="#fir" transform="translate(-96 325) scale(0.38)"/>
+<use href="#fir" transform="translate(1695 329) scale(0.38)"/>
+<use href="#fir" transform="translate(-767 330) scale(0.38)"/>
+<use href="#fir" transform="translate(1049 331) scale(0.38)"/>
+<use href="#fir" transform="translate(1346 331) scale(0.38)"/>
+<use href="#fir" transform="translate(-294 332) scale(0.39)"/>
+<use href="#fir" transform="translate(-723 335) scale(0.39)"/>
+<use href="#fir" transform="translate(-246 339) scale(0.39)"/>
+<use href="#fir" transform="translate(1020 344) scale(0.40)"/>
+<use href="#fir" transform="translate(-438 344) scale(0.40)"/>
+<use href="#fir" transform="translate(1554 345) scale(0.40)"/>
+<use href="#fir" transform="translate(-689 345) scale(0.40)"/>
+<use href="#fir" transform="translate(1785 345) scale(0.40)"/>
+<use href="#fir" transform="translate(-546 347) scale(0.40)"/>
+<use href="#fir" transform="translate(-515 347) scale(0.40)"/>
+<use href="#fir" transform="translate(-147 348) scale(0.40)"/>
+<use href="#fir" transform="translate(-630 351) scale(0.41)"/>
+<use href="#fir" transform="translate(-41 352) scale(0.41)"/>
+<use href="#fir" transform="translate(-195 353) scale(0.41)"/>
+<use href="#fir" transform="translate(1166 354) scale(0.41)"/>
+<use href="#fir" transform="translate(-464 354) scale(0.41)"/>
+<use href="#fir" transform="translate(1418 354) scale(0.41)"/>
+<use href="#fir" transform="translate(1257 355) scale(0.41)"/>
+<use href="#fir" transform="translate(1492 355) scale(0.41)"/>
+<use href="#fir" transform="translate(-752 357) scale(0.41)"/>
+<use href="#fir" transform="translate(1713 358) scale(0.41)"/>
+<use href="#fir" transform="translate(1221 360) scale(0.42)"/>
+<use href="#fir" transform="translate(-269 362) scale(0.42)"/>
+<use href="#fir" transform="translate(1521 363) scale(0.42)"/>
+<use href="#fir" transform="translate(1593 363) scale(0.42)"/>
+<use href="#fir" transform="translate(1329 366) scale(0.42)"/>
+<use href="#fir" transform="translate(1094 367) scale(0.42)"/>
+<use href="#fir" transform="translate(-711 369) scale(0.43)"/>
+<use href="#fir" transform="translate(-332 371) scale(0.43)"/>
+<use href="#fir" transform="translate(1302 376) scale(0.43)"/>
+<use href="#fir" transform="translate(1121 377) scale(0.44)"/>
+<use href="#fir" transform="translate(1623 379) scale(0.44)"/>
+<use href="#fir" transform="translate(-123 379) scale(0.44)"/>
+<use href="#fir" transform="translate(1048 380) scale(0.44)"/>
+<use href="#fir" transform="translate(1441 381) scale(0.44)"/>
+<use href="#fir" transform="translate(-754 382) scale(0.44)"/>
+<use href="#fir" transform="translate(1195 382) scale(0.44)"/>
+<use href="#fir" transform="translate(-239 382) scale(0.44)"/>
+<use href="#fir" transform="translate(1652 384) scale(0.44)"/>
+<use href="#fir" transform="translate(-553 385) scale(0.44)"/>
+<use href="#fir" transform="translate(1259 385) scale(0.44)"/>
+<use href="#fir" transform="translate(-427 386) scale(0.45)"/>
+<use href="#fir" transform="translate(-95 387) scale(0.45)"/>
+<use href="#fir" transform="translate(-483 388) scale(0.45)"/>
+<use href="#fir" transform="translate(-39 388) scale(0.45)"/>
+<use href="#fir" transform="translate(1791 389) scale(0.45)"/>
+<use href="#fir" transform="translate(1754 392) scale(0.45)"/>
+<use href="#fir" transform="translate(1082 392) scale(0.45)"/>
+<use href="#fir" transform="translate(1546 392) scale(0.45)"/>
+<use href="#fir" transform="translate(-178 397) scale(0.46)"/>
+<use href="#fir" transform="translate(1403 397) scale(0.46)"/>
+<use href="#fir" transform="translate(-266 398) scale(0.46)"/>
+<use href="#fir" transform="translate(1378 400) scale(0.46)"/>
+<use href="#fir" transform="translate(1722 401) scale(0.46)"/>
+<use href="#fir" transform="translate(1312 402) scale(0.46)"/>
+<use href="#fir" transform="translate(1108 402) scale(0.46)"/>
+<use href="#fir" transform="translate(1022 407) scale(0.47)"/>
+<use href="#fir" transform="translate(-500 407) scale(0.47)"/>
+<use href="#fir" transform="translate(-538 407) scale(0.47)"/>
+<use href="#fir" transform="translate(1233 410) scale(0.47)"/>
+<use href="#fir" transform="translate(-231 411) scale(0.47)"/>
+<use href="#fir" transform="translate(1136 412) scale(0.47)"/>
+<use href="#fir" transform="translate(-657 414) scale(0.48)"/>
+<use href="#fir" transform="translate(-738 414) scale(0.48)"/>
+<use href="#fir" transform="translate(1466 415) scale(0.48)"/>
+<use href="#fir" transform="translate(1581 417) scale(0.48)"/>
+<use href="#fir" transform="translate(1352 417) scale(0.48)"/>
+<use href="#fir" transform="translate(-574 419) scale(0.48)"/>
+<use href="#fir" transform="translate(-618 419) scale(0.48)"/>
+<use href="#fir" transform="translate(-370 421) scale(0.48)"/>
+<use href="#fir" transform="translate(1498 422) scale(0.49)"/>
+<use href="#fir" transform="translate(-206 424) scale(0.49)"/>
+<use href="#fir" transform="translate(1685 424) scale(0.49)"/>
+<use href="#fir" transform="translate(-343 427) scale(0.49)"/>
+<use href="#fir" transform="translate(1045 431) scale(0.50)"/>
+<use href="#fir" transform="translate(1091 431) scale(0.50)"/>
+<use href="#fir" transform="translate(-272 431) scale(0.50)"/>
+<use href="#fir" transform="translate(-689 432) scale(0.50)"/>
+<use href="#fir" transform="translate(-599 435) scale(0.50)"/>
+<use href="#fir" transform="translate(-770 436) scale(0.50)"/>
+<use href="#fir" transform="translate(1226 436) scale(0.50)"/>
+<use href="#fir" transform="translate(-172 437) scale(0.50)"/>
+<use href="#fir" transform="translate(-799 439) scale(0.50)"/>
+<use href="#fir" transform="translate(-41 441) scale(0.51)"/>
+<use href="#fir" transform="translate(-411 443) scale(0.51)"/>
+<use href="#fir" transform="translate(-467 444) scale(0.51)"/>
+<use href="#fir" transform="translate(-503 446) scale(0.51)"/>
+<use href="#fir" transform="translate(1062 447) scale(0.51)"/>
+<use href="#fir" transform="translate(1469 447) scale(0.51)"/>
+<use href="#fir" transform="translate(1656 449) scale(0.52)"/>
+<use href="#fir" transform="translate(1567 450) scale(0.52)"/>
+<use href="#fir" transform="translate(1504 450) scale(0.52)"/>
+<use href="#fir" transform="translate(1341 450) scale(0.52)"/>
+<use href="#fir" transform="translate(1609 451) scale(0.52)"/>
+<use href="#fir" transform="translate(-308 451) scale(0.52)"/>
+<use href="#fir" transform="translate(1287 454) scale(0.52)"/>
+<use href="#fir" transform="translate(1763 455) scale(0.52)"/>
+<use href="#fir" transform="translate(-733 455) scale(0.52)"/>
+<use href="#fir" transform="translate(1152 456) scale(0.52)"/>
+<use href="#fir" transform="translate(1368 458) scale(0.53)"/>
+<use href="#fir" transform="translate(1103 458) scale(0.53)"/>
+<use href="#fir" transform="translate(1736 459) scale(0.53)"/>
+<use href="#fir" transform="translate(-363 460) scale(0.53)"/>
+<use href="#fir" transform="translate(-552 461) scale(0.53)"/>
+<use href="#fir" transform="translate(-135 462) scale(0.53)"/>
+<use href="#fir" transform="translate(-187 462) scale(0.53)"/>
+<use href="#fir" transform="translate(1243 464) scale(0.53)"/>
+<use href="#fir" transform="translate(-422 465) scale(0.53)"/>
+<use href="#fir" transform="translate(1127 466) scale(0.53)"/>
+<use href="#fir" transform="translate(1046 469) scale(0.54)"/>
+<use href="#fir" transform="translate(-661 471) scale(0.54)"/>
+<use href="#fir" transform="translate(-235 472) scale(0.54)"/>
+<use href="#fir" transform="translate(1785 472) scale(0.54)"/>
+<use href="#fir" transform="translate(1312 472) scale(0.54)"/>
+<use href="#fir" transform="translate(1683 473) scale(0.54)"/>
+<use href="#fir" transform="translate(1554 474) scale(0.54)"/>
+<use href="#fir" transform="translate(1400 475) scale(0.54)"/>
+<use href="#fir" transform="translate(1447 477) scale(0.55)"/>
+<use href="#fir" transform="translate(-290 479) scale(0.55)"/>
+<use href="#fir" transform="translate(1505 479) scale(0.55)"/>
+<use href="#fir" transform="translate(1618 480) scale(0.55)"/>
+<use href="#fir" transform="translate(-780 480) scale(0.55)"/>
 <path d="M0 360 C80 300 180 300 280 290 C380 280 450 300 520 278 C620 250 760 270 860 250 C930 238 970 250 1000 250 V520 H0Z" fill="url(#hill)"/>
 <use href="#fir" transform="translate(324 313) scale(0.48)" opacity=".9"/>
 <use href="#fir" transform="translate(72 384) scale(0.42)" opacity=".9"/>
@@ -489,6 +645,9 @@ dialog.req .x{position:absolute;right:14px;top:12px;width:40px;height:40px;borde
 <use href="#fir" transform="translate(503 384) scale(0.48)" opacity=".9"/>
 <path d="M700 255 C690 300 660 330 640 380 L700 380 C720 330 740 300 745 255Z" fill="#F4F8FD"/>
 <path d="M820 245 C830 290 860 330 880 380 L830 380 C810 330 795 290 790 250Z" fill="#EEF4FB"/>
+<path d="M-800 520 C-500 480 -200 500 6 469 V1250 H-800Z M994 400 C1250 430 1500 470 1800 500 V1250 H994Z" fill="url(#snowg)"/>
+<path d="M-800 560 C-600 520 -450 540 -380 600 C-500 640 -680 650 -800 680Z" fill="#DCE8F6" opacity=".6"/>
+<path d="M1800 560 C1650 560 1540 600 1500 680 C1600 700 1720 690 1800 720Z" fill="#DCE8F6" opacity=".6"/>
 <path d="M0 470 C150 420 300 400 470 380 C600 362 700 330 760 340 C840 352 920 380 1000 400 V1250 H0Z" fill="url(#snowg)"/>
 <path d="M0 520 C200 470 330 470 420 520 C330 560 160 580 0 600Z" fill="#DCE8F6" opacity=".6"/>
 <path d="M1000 470 C900 480 840 520 820 600 C880 620 950 610 1000 640Z" fill="#DCE8F6" opacity=".6"/>
@@ -608,11 +767,298 @@ dialog.req .x{position:absolute;right:14px;top:12px;width:40px;height:40px;borde
 <use href="#fir" transform="translate(130 854) scale(0.98)"/>
 <use href="#fir" transform="translate(269 856) scale(0.98)"/>
 <use href="#fir" transform="translate(981 859) scale(0.99)"/>
+<use href="#fir" transform="translate(1750 501) scale(0.60)"/>
+<use href="#fir" transform="translate(-513 501) scale(0.60)"/>
+<use href="#fir" transform="translate(-27 503) scale(0.60)"/>
+<use href="#fir" transform="translate(1122 504) scale(0.60)"/>
+<use href="#fir" transform="translate(1077 505) scale(0.60)"/>
+<use href="#fir" transform="translate(1621 505) scale(0.60)"/>
+<use href="#fir" transform="translate(1552 506) scale(0.60)"/>
+<use href="#fir" transform="translate(1272 509) scale(0.61)"/>
+<use href="#fir" transform="translate(1349 513) scale(0.61)"/>
+<use href="#fir" transform="translate(-575 515) scale(0.61)"/>
+<use href="#fir" transform="translate(1676 517) scale(0.61)"/>
+<use href="#fir" transform="translate(-108 517) scale(0.61)"/>
+<use href="#fir" transform="translate(-680 519) scale(0.61)"/>
+<use href="#fir" transform="translate(-479 520) scale(0.61)"/>
+<use href="#fir" transform="translate(-749 521) scale(0.61)"/>
+<use href="#fir" transform="translate(1431 521) scale(0.61)"/>
+<use href="#fir" transform="translate(-448 526) scale(0.62)"/>
+<use href="#fir" transform="translate(1597 527) scale(0.62)"/>
+<use href="#fir" transform="translate(-21 528) scale(0.62)"/>
+<use href="#fir" transform="translate(1730 530) scale(0.62)"/>
+<use href="#fir" transform="translate(1060 533) scale(0.62)"/>
+<use href="#fir" transform="translate(1092 534) scale(0.62)"/>
+<use href="#fir" transform="translate(1018 536) scale(0.63)"/>
+<use href="#fir" transform="translate(-385 538) scale(0.63)"/>
+<use href="#fir" transform="translate(1321 540) scale(0.63)"/>
+<use href="#fir" transform="translate(1675 543) scale(0.63)"/>
+<use href="#fir" transform="translate(-697 544) scale(0.63)"/>
+<use href="#fir" transform="translate(1452 548) scale(0.63)"/>
+<use href="#fir" transform="translate(-628 550) scale(0.63)"/>
+<use href="#fir" transform="translate(-513 552) scale(0.64)"/>
+<use href="#fir" transform="translate(-777 552) scale(0.64)"/>
+<use href="#fir" transform="translate(-359 554) scale(0.64)"/>
+<use href="#fir" transform="translate(1387 558) scale(0.64)"/>
+<use href="#fir" transform="translate(1338 562) scale(0.64)"/>
+<use href="#fir" transform="translate(-443 563) scale(0.64)"/>
+<use href="#fir" transform="translate(1266 564) scale(0.64)"/>
+<use href="#fir" transform="translate(-579 568) scale(0.65)"/>
+<use href="#fir" transform="translate(1774 569) scale(0.65)"/>
+<use href="#fir" transform="translate(-57 569) scale(0.65)"/>
+<use href="#fir" transform="translate(-674 570) scale(0.65)"/>
+<use href="#fir" transform="translate(-707 570) scale(0.65)"/>
+<use href="#fir" transform="translate(-736 572) scale(0.65)"/>
+<use href="#fir" transform="translate(-640 577) scale(0.65)"/>
+<use href="#fir" transform="translate(1612 578) scale(0.65)"/>
+<use href="#fir" transform="translate(1309 581) scale(0.66)"/>
+<use href="#fir" transform="translate(1221 583) scale(0.66)"/>
+<use href="#fir" transform="translate(1424 584) scale(0.66)"/>
+<use href="#fir" transform="translate(-406 585) scale(0.66)"/>
+<use href="#fir" transform="translate(-96 586) scale(0.66)"/>
+<use href="#fir" transform="translate(-23 586) scale(0.66)"/>
+<use href="#fir" transform="translate(1758 591) scale(0.66)"/>
+<use href="#fir" transform="translate(1279 592) scale(0.66)"/>
+<use href="#fir" transform="translate(1356 592) scale(0.66)"/>
+<use href="#fir" transform="translate(1174 592) scale(0.66)"/>
+<use href="#fir" transform="translate(-581 594) scale(0.66)"/>
+<use href="#fir" transform="translate(-434 608) scale(0.67)"/>
+<use href="#fir" transform="translate(1084 608) scale(0.67)"/>
+<use href="#fir" transform="translate(-675 609) scale(0.67)"/>
+<use href="#fir" transform="translate(1567 609) scale(0.68)"/>
+<use href="#fir" transform="translate(-794 610) scale(0.68)"/>
+<use href="#fir" transform="translate(1139 610) scale(0.68)"/>
+<use href="#fir" transform="translate(1756 615) scale(0.68)"/>
+<use href="#fir" transform="translate(1780 623) scale(0.68)"/>
+<use href="#fir" transform="translate(-741 624) scale(0.69)"/>
+<use href="#fir" transform="translate(-395 625) scale(0.69)"/>
+<use href="#fir" transform="translate(1439 626) scale(0.69)"/>
+<use href="#fir" transform="translate(1336 626) scale(0.69)"/>
+<use href="#fir" transform="translate(1533 629) scale(0.69)"/>
+<use href="#fir" transform="translate(-575 630) scale(0.69)"/>
+<use href="#fir" transform="translate(1202 634) scale(0.69)"/>
+<use href="#fir" transform="translate(1623 636) scale(0.69)"/>
+<use href="#fir" transform="translate(-47 636) scale(0.69)"/>
+<use href="#fir" transform="translate(1088 636) scale(0.69)"/>
+<use href="#fir" transform="translate(1683 643) scale(0.70)"/>
+<use href="#fir" transform="translate(-420 644) scale(0.70)"/>
+<use href="#fir" transform="translate(1042 644) scale(0.70)"/>
+<use href="#fir" transform="translate(-663 644) scale(0.70)"/>
+<use href="#fir" transform="translate(1586 648) scale(0.70)"/>
+<use href="#fir" transform="translate(1375 649) scale(0.70)"/>
+<use href="#fir" transform="translate(1135 651) scale(0.70)"/>
+<use href="#fir" transform="translate(-101 651) scale(0.70)"/>
+<use href="#fir" transform="translate(1463 656) scale(0.71)"/>
+<use href="#fir" transform="translate(-793 662) scale(0.71)"/>
+<use href="#fir" transform="translate(1114 663) scale(0.71)"/>
+<use href="#fir" transform="translate(1730 663) scale(0.71)"/>
+<use href="#fir" transform="translate(1777 664) scale(0.71)"/>
+<use href="#fir" transform="translate(-564 670) scale(0.72)"/>
+<use href="#fir" transform="translate(-57 671) scale(0.72)"/>
+<use href="#fir" transform="translate(1084 674) scale(0.72)"/>
+<use href="#fir" transform="translate(1696 676) scale(0.72)"/>
+<use href="#fir" transform="translate(-449 678) scale(0.72)"/>
+<use href="#fir" transform="translate(1521 681) scale(0.72)"/>
+<use href="#fir" transform="translate(1621 684) scale(0.73)"/>
+<use href="#fir" transform="translate(-518 686) scale(0.73)"/>
+<use href="#fir" transform="translate(1419 688) scale(0.73)"/>
+<use href="#fir" transform="translate(1173 688) scale(0.73)"/>
+<use href="#fir" transform="translate(-582 690) scale(0.73)"/>
+<use href="#fir" transform="translate(-351 691) scale(0.73)"/>
+<use href="#fir" transform="translate(-422 692) scale(0.73)"/>
+<use href="#fir" transform="translate(1444 692) scale(0.73)"/>
+<use href="#fir" transform="translate(-643 693) scale(0.73)"/>
+<use href="#fir" transform="translate(-711 694) scale(0.73)"/>
+<use href="#fir" transform="translate(1390 697) scale(0.74)"/>
+<use href="#fir" transform="translate(1590 698) scale(0.74)"/>
+<use href="#fir" transform="translate(1771 699) scale(0.74)"/>
+<use href="#fir" transform="translate(1739 700) scale(0.74)"/>
+<use href="#fir" transform="translate(1648 701) scale(0.74)"/>
+<use href="#fir" transform="translate(1362 701) scale(0.74)"/>
+<use href="#fir" transform="translate(-459 703) scale(0.74)"/>
+<use href="#fir" transform="translate(1552 706) scale(0.74)"/>
+<use href="#fir" transform="translate(1153 706) scale(0.74)"/>
+<use href="#fir" transform="translate(1298 707) scale(0.74)"/>
+<use href="#fir" transform="translate(1214 708) scale(0.74)"/>
+<use href="#fir" transform="translate(-564 710) scale(0.74)"/>
+<use href="#fir" transform="translate(-306 711) scale(0.75)"/>
+<use href="#fir" transform="translate(1250 711) scale(0.75)"/>
+<use href="#fir" transform="translate(1411 711) scale(0.75)"/>
+<use href="#fir" transform="translate(-597 714) scale(0.75)"/>
+<use href="#fir" transform="translate(1513 715) scale(0.75)"/>
+<use href="#fir" transform="translate(-758 716) scale(0.75)"/>
+<use href="#fir" transform="translate(1469 719) scale(0.75)"/>
+<use href="#fir" transform="translate(-482 720) scale(0.75)"/>
+<use href="#fir" transform="translate(-795 721) scale(0.75)"/>
+<use href="#fir" transform="translate(1326 729) scale(0.76)"/>
+<use href="#fir" transform="translate(1092 731) scale(0.76)"/>
+<use href="#fir" transform="translate(-351 735) scale(0.76)"/>
+<use href="#fir" transform="translate(-568 735) scale(0.76)"/>
+<use href="#fir" transform="translate(1594 736) scale(0.76)"/>
+<use href="#fir" transform="translate(1058 737) scale(0.76)"/>
+<use href="#fir" transform="translate(-516 739) scale(0.77)"/>
+<use href="#fir" transform="translate(1249 743) scale(0.77)"/>
+<use href="#fir" transform="translate(1485 743) scale(0.77)"/>
+<use href="#fir" transform="translate(-310 747) scale(0.77)"/>
+<use href="#fir" transform="translate(-723 748) scale(0.77)"/>
+<use href="#fir" transform="translate(1671 749) scale(0.77)"/>
+<use href="#fir" transform="translate(1371 753) scale(0.77)"/>
+<use href="#fir" transform="translate(-410 753) scale(0.77)"/>
+<use href="#fir" transform="translate(-681 754) scale(0.77)"/>
+<use href="#fir" transform="translate(1020 754) scale(0.78)"/>
+<use href="#fir" transform="translate(1707 762) scale(0.78)"/>
+<use href="#fir" transform="translate(1092 763) scale(0.78)"/>
+<use href="#fir" transform="translate(1446 763) scale(0.78)"/>
+<use href="#fir" transform="translate(1597 765) scale(0.78)"/>
+<use href="#fir" transform="translate(1745 771) scale(0.79)"/>
+<use href="#fir" transform="translate(1175 772) scale(0.79)"/>
+<use href="#fir" transform="translate(1797 777) scale(0.79)"/>
+<use href="#fir" transform="translate(-37 779) scale(0.79)"/>
+<use href="#fir" transform="translate(-542 783) scale(0.80)"/>
+<use href="#fir" transform="translate(-381 783) scale(0.80)"/>
+<use href="#fir" transform="translate(1339 785) scale(0.80)"/>
+<use href="#fir" transform="translate(-642 786) scale(0.80)"/>
+<use href="#fir" transform="translate(1049 788) scale(0.80)"/>
+<use href="#fir" transform="translate(1306 795) scale(0.80)"/>
+<use href="#fir" transform="translate(-488 795) scale(0.80)"/>
+<use href="#fir" transform="translate(1772 796) scale(0.80)"/>
+<use href="#fir" transform="translate(1015 796) scale(0.80)"/>
+<use href="#fir" transform="translate(-419 797) scale(0.80)"/>
+<use href="#fir" transform="translate(-586 797) scale(0.80)"/>
+<use href="#fir" transform="translate(-319 799) scale(0.81)"/>
+<use href="#fir" transform="translate(-799 803) scale(0.81)"/>
+<use href="#fir" transform="translate(1174 804) scale(0.81)"/>
+<use href="#fir" transform="translate(-674 808) scale(0.81)"/>
+<use href="#fir" transform="translate(1727 808) scale(0.81)"/>
+<use href="#fir" transform="translate(1795 809) scale(0.81)"/>
+<use href="#fir" transform="translate(1272 810) scale(0.81)"/>
+<use href="#fir" transform="translate(1478 811) scale(0.81)"/>
+<use href="#fir" transform="translate(-346 812) scale(0.81)"/>
+<use href="#fir" transform="translate(1406 812) scale(0.82)"/>
+<use href="#fir" transform="translate(1544 813) scale(0.82)"/>
+<use href="#fir" transform="translate(-394 815) scale(0.82)"/>
+<use href="#fir" transform="translate(1083 815) scale(0.82)"/>
+<use href="#fir" transform="translate(1247 816) scale(0.82)"/>
+<use href="#fir" transform="translate(1649 817) scale(0.82)"/>
+<use href="#fir" transform="translate(-296 821) scale(0.82)"/>
+<use href="#fir" transform="translate(1043 822) scale(0.82)"/>
+<use href="#fir" transform="translate(-454 822) scale(0.82)"/>
+<use href="#fir" transform="translate(-268 824) scale(0.82)"/>
+<use href="#fir" transform="translate(-549 825) scale(0.82)"/>
+<use href="#fir" transform="translate(1513 829) scale(0.83)"/>
+<use href="#fir" transform="translate(-496 831) scale(0.83)"/>
+<use href="#fir" transform="translate(1289 832) scale(0.83)"/>
+<use href="#fir" transform="translate(-767 833) scale(0.83)"/>
+<use href="#fir" transform="translate(-583 833) scale(0.83)"/>
+<use href="#fir" transform="translate(1341 841) scale(0.84)"/>
+<use href="#fir" transform="translate(1367 841) scale(0.84)"/>
+<use href="#fir" transform="translate(-400 842) scale(0.84)"/>
+<use href="#fir" transform="translate(1586 843) scale(0.84)"/>
+<use href="#fir" transform="translate(-609 844) scale(0.84)"/>
+<use href="#fir" transform="translate(1152 845) scale(0.84)"/>
+<use href="#fir" transform="translate(1797 845) scale(0.84)"/>
+<use href="#fir" transform="translate(-700 849) scale(0.84)"/>
+<use href="#fir" transform="translate(-480 850) scale(0.84)"/>
+<use href="#fir" transform="translate(1559 853) scale(0.84)"/>
+<use href="#fir" transform="translate(1248 854) scale(0.84)"/>
+<use href="#fir" transform="translate(1631 855) scale(0.84)"/>
+<use href="#fir" transform="translate(1216 855) scale(0.85)"/>
+<use href="#fir" transform="translate(1405 857) scale(0.85)"/>
+<use href="#fir" transform="translate(-370 863) scale(0.85)"/>
+<use href="#fir" transform="translate(-786 864) scale(0.85)"/>
+<use href="#fir" transform="translate(1601 865) scale(0.85)"/>
+<use href="#fir" transform="translate(-545 866) scale(0.85)"/>
+<use href="#fir" transform="translate(-643 870) scale(0.86)"/>
+<use href="#fir" transform="translate(-602 871) scale(0.86)"/>
+<use href="#fir" transform="translate(1656 872) scale(0.86)"/>
+<use href="#fir" transform="translate(1197 873) scale(0.86)"/>
+<use href="#fir" transform="translate(1160 876) scale(0.86)"/>
+<use href="#fir" transform="translate(1537 883) scale(0.86)"/>
+<use href="#fir" transform="translate(-279 883) scale(0.86)"/>
+<use href="#fir" transform="translate(1511 886) scale(0.87)"/>
+<use href="#fir" transform="translate(-317 887) scale(0.87)"/>
+<use href="#fir" transform="translate(-579 888) scale(0.87)"/>
+<use href="#fir" transform="translate(-372 888) scale(0.87)"/>
+<use href="#fir" transform="translate(1430 889) scale(0.87)"/>
+<use href="#fir" transform="translate(1094 889) scale(0.87)"/>
+<use href="#fir" transform="translate(-456 890) scale(0.87)"/>
+<use href="#fir" transform="translate(-503 891) scale(0.87)"/>
+<use href="#fir" transform="translate(1119 893) scale(0.87)"/>
+<use href="#fir" transform="translate(-772 893) scale(0.87)"/>
+<use href="#fir" transform="translate(-413 894) scale(0.87)"/>
+<use href="#fir" transform="translate(-624 897) scale(0.87)"/>
+<use href="#fir" transform="translate(1280 901) scale(0.88)"/>
+<use href="#fir" transform="translate(1193 902) scale(0.88)"/>
+<use href="#fir" transform="translate(1560 904) scale(0.88)"/>
+<use href="#fir" transform="translate(1770 904) scale(0.88)"/>
+<use href="#fir" transform="translate(1310 904) scale(0.88)"/>
+<use href="#fir" transform="translate(1347 906) scale(0.88)"/>
+<use href="#fir" transform="translate(1063 911) scale(0.88)"/>
+<use href="#fir" transform="translate(1535 914) scale(0.89)"/>
+<use href="#fir" transform="translate(-451 915) scale(0.89)"/>
+<use href="#fir" transform="translate(1407 916) scale(0.89)"/>
+<use href="#fir" transform="translate(1445 917) scale(0.89)"/>
+<use href="#fir" transform="translate(1491 918) scale(0.89)"/>
+<use href="#fir" transform="translate(1719 919) scale(0.89)"/>
+<use href="#fir" transform="translate(-347 920) scale(0.89)"/>
+<use href="#fir" transform="translate(-649 921) scale(0.89)"/>
+<use href="#fir" transform="translate(-736 922) scale(0.89)"/>
+<use href="#fir" transform="translate(1624 926) scale(0.89)"/>
+<use href="#fir" transform="translate(1128 927) scale(0.89)"/>
+<use href="#fir" transform="translate(-276 929) scale(0.90)"/>
+<use href="#fir" transform="translate(-784 931) scale(0.90)"/>
+<use href="#fir" transform="translate(-665 943) scale(0.91)"/>
+<use href="#fir" transform="translate(1689 944) scale(0.91)"/>
+<use href="#fir" transform="translate(-612 949) scale(0.91)"/>
+<use href="#fir" transform="translate(-721 949) scale(0.91)"/>
+<use href="#fir" transform="translate(-561 955) scale(0.91)"/>
+<use href="#fir" transform="translate(-696 960) scale(0.92)"/>
+<use href="#fir" transform="translate(1140 975) scale(0.93)"/>
+<use href="#fir" transform="translate(-656 982) scale(0.93)"/>
+<use href="#fir" transform="translate(-569 986) scale(0.94)"/>
+<use href="#fir" transform="translate(1723 990) scale(0.94)"/>
+<use href="#fir" transform="translate(-608 997) scale(0.94)"/>
+<use href="#fir" transform="translate(-727 998) scale(0.94)"/>
+<use href="#fir" transform="translate(1167 1000) scale(0.94)"/>
+<use href="#fir" transform="translate(1098 1008) scale(0.95)"/>
+<use href="#fir" transform="translate(1686 1011) scale(0.95)"/>
+<use href="#fir" transform="translate(-767 1012) scale(0.95)"/>
+<use href="#fir" transform="translate(1648 1014) scale(0.95)"/>
+<use href="#fir" transform="translate(1061 1015) scale(0.95)"/>
+<use href="#fir" transform="translate(-667 1019) scale(0.96)"/>
+<use href="#fir" transform="translate(-797 1019) scale(0.96)"/>
+<path d="M-270 480 C-240 670 -100 800 -60 1040" fill="none" stroke="#000" stroke-opacity=".05" stroke-width="104" stroke-linecap="round" transform="translate(5 6)"/>
+<path d="M-270 480 C-240 670 -100 800 -60 1040" fill="none" stroke="url(#cord)" stroke-width="96" stroke-linecap="round"/>
+<path d="M-270 480 C-240 670 -100 800 -60 1040" fill="none" stroke="#E6EEF8" stroke-width="2" stroke-dasharray="4 10"/>
+<line x1="-120" y1="1060" x2="-310" y2="470" stroke="#4A5A70" stroke-width="1.8"/>
+<g transform="translate(-147 977)"><path d="M0 26 V-12" stroke="#5B6B80" stroke-width="5"/><path d="M-10 -12 H10" stroke="#5B6B80" stroke-width="4"/><circle cx="0" cy="-12" r="3.5" fill="#2B3A4E"/><ellipse cx="0" cy="27" rx="9" ry="3" fill="#0D3B7A" opacity=".15"/></g>
+<g transform="translate(-181 871)"><path d="M0 26 V-12" stroke="#5B6B80" stroke-width="5"/><path d="M-10 -12 H10" stroke="#5B6B80" stroke-width="4"/><circle cx="0" cy="-12" r="3.5" fill="#2B3A4E"/><ellipse cx="0" cy="27" rx="9" ry="3" fill="#0D3B7A" opacity=".15"/></g>
+<g transform="translate(-215 765)"><path d="M0 26 V-12" stroke="#5B6B80" stroke-width="5"/><path d="M-10 -12 H10" stroke="#5B6B80" stroke-width="4"/><circle cx="0" cy="-12" r="3.5" fill="#2B3A4E"/><ellipse cx="0" cy="27" rx="9" ry="3" fill="#0D3B7A" opacity=".15"/></g>
+<g transform="translate(-249 659)"><path d="M0 26 V-12" stroke="#5B6B80" stroke-width="5"/><path d="M-10 -12 H10" stroke="#5B6B80" stroke-width="4"/><circle cx="0" cy="-12" r="3.5" fill="#2B3A4E"/><ellipse cx="0" cy="27" rx="9" ry="3" fill="#0D3B7A" opacity=".15"/></g>
+<g transform="translate(-282 558)"><path d="M0 26 V-12" stroke="#5B6B80" stroke-width="5"/><path d="M-10 -12 H10" stroke="#5B6B80" stroke-width="4"/><circle cx="0" cy="-12" r="3.5" fill="#2B3A4E"/><ellipse cx="0" cy="27" rx="9" ry="3" fill="#0D3B7A" opacity=".15"/></g>
+<path id="arenaUp" d="M-120 1060 L-310 470" fill="none"/>
+<g class="tbar"><line x1="0" y1="0" x2="0" y2="18" stroke="#4A5A70" stroke-width="1.6"/><path d="M-9 18 H9" stroke="#2B3A4E" stroke-width="3.5" stroke-linecap="round"/><animateMotion dur="26s" repeatCount="indefinite" begin="0.00s"><mpath href="#arenaUp"/></animateMotion></g>
+<g class="tbar"><line x1="0" y1="0" x2="0" y2="18" stroke="#4A5A70" stroke-width="1.6"/><path d="M-9 18 H9" stroke="#2B3A4E" stroke-width="3.5" stroke-linecap="round"/><animateMotion dur="26s" repeatCount="indefinite" begin="-3.71s"><mpath href="#arenaUp"/></animateMotion></g>
+<g class="tbar"><line x1="0" y1="0" x2="0" y2="18" stroke="#4A5A70" stroke-width="1.6"/><path d="M-9 18 H9" stroke="#2B3A4E" stroke-width="3.5" stroke-linecap="round"/><animateMotion dur="26s" repeatCount="indefinite" begin="-7.43s"><mpath href="#arenaUp"/></animateMotion></g>
+<g class="tbar"><line x1="0" y1="0" x2="0" y2="18" stroke="#4A5A70" stroke-width="1.6"/><path d="M-9 18 H9" stroke="#2B3A4E" stroke-width="3.5" stroke-linecap="round"/><animateMotion dur="26s" repeatCount="indefinite" begin="-11.14s"><mpath href="#arenaUp"/></animateMotion></g>
+<g class="tbar"><line x1="0" y1="0" x2="0" y2="18" stroke="#4A5A70" stroke-width="1.6"/><path d="M-9 18 H9" stroke="#2B3A4E" stroke-width="3.5" stroke-linecap="round"/><animateMotion dur="26s" repeatCount="indefinite" begin="-14.86s"><mpath href="#arenaUp"/></animateMotion></g>
+<g class="tbar"><line x1="0" y1="0" x2="0" y2="18" stroke="#4A5A70" stroke-width="1.6"/><path d="M-9 18 H9" stroke="#2B3A4E" stroke-width="3.5" stroke-linecap="round"/><animateMotion dur="26s" repeatCount="indefinite" begin="-18.57s"><mpath href="#arenaUp"/></animateMotion></g>
+<g class="tbar"><line x1="0" y1="0" x2="0" y2="18" stroke="#4A5A70" stroke-width="1.6"/><path d="M-9 18 H9" stroke="#2B3A4E" stroke-width="3.5" stroke-linecap="round"/><animateMotion dur="26s" repeatCount="indefinite" begin="-22.29s"><mpath href="#arenaUp"/></animateMotion></g>
+<g transform="translate(-120 1060)"><ellipse cx="0" cy="18" rx="34" ry="7" fill="#0D3B7A" opacity=".15"/><rect x="-26" y="-20" width="40" height="34" fill="#8A5A34" stroke="#0D3B7A" stroke-width="2.5"/><path d="M-32-18 L-6-38 L20-18Z" fill="#fff" stroke="#0D3B7A" stroke-width="2.5" stroke-linejoin="round"/><rect x="-18" y="-12" width="14" height="10" fill="#FFD46B" stroke="#0D3B7A" stroke-width="1.5"/><path d="M14 14 V-30" stroke="#7C8BA0" stroke-width="4"/><circle cx="14" cy="-30" r="7" fill="#C9D3DF" stroke="#0D3B7A" stroke-width="2"/></g>
+<g transform="translate(-310 470)"><ellipse cx="0" cy="10" rx="22" ry="5" fill="#0D3B7A" opacity=".15"/><path d="M0 10 V-18" stroke="#7C8BA0" stroke-width="4"/><circle cx="0" cy="-20" r="7" fill="#C9D3DF" stroke="#0D3B7A" stroke-width="2"/></g>
+<g transform="translate(-246 812) rotate(-70)"><rect x="-66" y="-11" width="132" height="22" rx="11" fill="#fff" stroke="#0D3B7A" stroke-width="2"/><text x="0" y="5" font-size="12" text-anchor="middle" fill="#0D3B7A" font-weight="800" font-family="Barlow Condensed,Arial" letter-spacing="1">ARENALIFT · SCHLEPPLIFT</text></g>
+<use href="#bare" transform="translate(-200 1000) scale(1.3)"/>
+<use href="#bare" transform="translate(-650 1050) scale(1.3)"/>
+<use href="#bare" transform="translate(1300 1020) scale(1.3)"/>
+<use href="#bare" transform="translate(1700 1040) scale(1.3)"/>
+<use href="#bare" transform="translate(1120 980) scale(1.3)"/>
 <use href="#bare" transform="translate(915 905) scale(1.3)"/>
 <use href="#bare" transform="translate(950 960) scale(1.3)"/>
 <use href="#bare" transform="translate(880 950) scale(1.3)"/>
 <use href="#bare" transform="translate(60 890) scale(1.3)"/>
 <use href="#bare" transform="translate(30 950) scale(1.3)"/>
+<path d="M1480 520 C1460 640 1500 760 1440 900" fill="none" stroke="#F4F8FD" stroke-width="60" stroke-linecap="round" opacity=".9"/>
+<path d="M1530 905 L1600 520" stroke="#5B6B80" stroke-width="2" opacity=".6"/>
 <path d="M660.0,300.0 L659.7,301.9 L659.4,304.1 L659.0,306.5 L658.7,309.1 L658.3,311.9 L657.9,314.8 L657.5,317.9 L657.0,321.2 L656.6,324.6 L656.1,328.1 L655.6,331.8 L655.1,335.6 L654.5,339.5 L654.0,343.5 L653.4,347.5 L652.8,351.6 L652.1,355.8 L651.5,360.0 L650.8,364.2 L650.1,368.5 L649.4,372.8 L648.7,377.1 L647.9,381.4 L647.2,385.6 L646.4,389.8 L645.5,394.0 L644.7,398.1 L643.8,402.1 L642.9,406.1 L642.0,410.0 L641.0,413.8 L640.1,417.7 L639.0,421.6 L638.0,425.5 L636.9,429.4 L635.8,433.3 L634.7,437.2 L633.5,441.2 L632.3,445.1 L631.1,449.1 L629.9,453.1 L628.6,457.0 L627.4,461.0 L626.1,465.0 L624.8,469.1 L623.4,473.1 L622.1,477.1 L620.7,481.2 L619.4,485.2 L618.0,489.3 L616.6,493.3 L615.2,497.4 L613.8,501.4 L612.4,505.5 L611.0,509.6 L609.6,513.7 L608.2,517.8 L606.8,521.8 L605.4,525.9 L604.0,530.0 L602.6,534.1 L601.2,538.2 L599.7,542.3 L598.3,546.4 L596.8,550.5 L595.4,554.7 L593.9,558.8 L592.4,563.0 L590.9,567.1 L589.4,571.3 L587.9,575.5 L586.4,579.6 L584.8,583.8 L583.3,588.0 L581.8,592.2 L580.2,596.4 L578.6,600.6 L577.1,604.8 L575.5,609.0 L573.9,613.1 L572.3,617.3 L570.8,621.5 L569.2,625.7 L567.6,629.9 L566.0,634.1 L564.4,638.3 L562.8,642.5 L561.2,646.7 L559.6,650.8 L558.0,655.0 L556.4,659.2 L554.8,663.4 L553.1,667.6 L551.5,671.9 L549.8,676.1 L548.1,680.4 L546.4,684.7 L544.7,689.0 L543.0,693.3 L541.3,697.6 L539.5,701.9 L537.8,706.2 L536.1,710.5 L534.4,714.8 L532.6,719.1 L530.9,723.3 L529.2,727.6 L527.5,731.8 L525.8,736.0 L524.1,740.2 L522.4,744.3 L520.7,748.5 L519.1,752.5 L517.4,756.6 L515.8,760.6 L514.2,764.6 L512.6,768.5 L511.1,772.4 L509.5,776.2 L508.0,780.0 L506.5,783.7 L505.0,787.4 L503.5,791.1 L502.0,794.8 L500.5,798.4 L499.0,802.0 L497.5,805.6 L496.0,809.1 L494.5,812.6 L493.0,816.1 L491.6,819.6 L490.1,823.0 L488.7,826.4 L487.3,829.8 L485.9,833.1 L484.5,836.4 L483.1,839.7 L481.8,843.0 L480.5,846.2 L479.2,849.4 L477.9,852.6 L476.7,855.8 L475.5,858.9 L474.3,862.0 L473.2,865.1 L472.1,868.1 L471.0,871.1 L469.9,874.1 L469.0,877.1 L468.0,880.0 L467.1,882.9 L466.2,885.9 L465.4,888.9 L464.5,891.8 L463.8,894.8 L463.0,897.8 L462.3,900.8 L461.6,903.7 L460.9,906.7 L460.3,909.6 L459.7,912.5 L459.1,915.4 L458.5,918.2 L458.0,921.0 L457.5,923.8 L457.0,926.4 L456.5,929.0 L456.1,931.6 L455.7,934.1 L455.3,936.5 L454.9,938.8 L454.5,941.0 L454.1,943.2 L453.8,945.2 L453.5,947.1 L453.1,948.9 L452.8,950.6 L452.6,952.2 L452.3,953.7 L452.0,955.0" fill="none" stroke="#000" stroke-opacity=".07" stroke-width="150" stroke-linecap="round" transform="translate(6 8)"/>
 <path id="pisteEdge" d="M660.0,300.0 L659.7,301.9 L659.4,304.1 L659.0,306.5 L658.7,309.1 L658.3,311.9 L657.9,314.8 L657.5,317.9 L657.0,321.2 L656.6,324.6 L656.1,328.1 L655.6,331.8 L655.1,335.6 L654.5,339.5 L654.0,343.5 L653.4,347.5 L652.8,351.6 L652.1,355.8 L651.5,360.0 L650.8,364.2 L650.1,368.5 L649.4,372.8 L648.7,377.1 L647.9,381.4 L647.2,385.6 L646.4,389.8 L645.5,394.0 L644.7,398.1 L643.8,402.1 L642.9,406.1 L642.0,410.0 L641.0,413.8 L640.1,417.7 L639.0,421.6 L638.0,425.5 L636.9,429.4 L635.8,433.3 L634.7,437.2 L633.5,441.2 L632.3,445.1 L631.1,449.1 L629.9,453.1 L628.6,457.0 L627.4,461.0 L626.1,465.0 L624.8,469.1 L623.4,473.1 L622.1,477.1 L620.7,481.2 L619.4,485.2 L618.0,489.3 L616.6,493.3 L615.2,497.4 L613.8,501.4 L612.4,505.5 L611.0,509.6 L609.6,513.7 L608.2,517.8 L606.8,521.8 L605.4,525.9 L604.0,530.0 L602.6,534.1 L601.2,538.2 L599.7,542.3 L598.3,546.4 L596.8,550.5 L595.4,554.7 L593.9,558.8 L592.4,563.0 L590.9,567.1 L589.4,571.3 L587.9,575.5 L586.4,579.6 L584.8,583.8 L583.3,588.0 L581.8,592.2 L580.2,596.4 L578.6,600.6 L577.1,604.8 L575.5,609.0 L573.9,613.1 L572.3,617.3 L570.8,621.5 L569.2,625.7 L567.6,629.9 L566.0,634.1 L564.4,638.3 L562.8,642.5 L561.2,646.7 L559.6,650.8 L558.0,655.0 L556.4,659.2 L554.8,663.4 L553.1,667.6 L551.5,671.9 L549.8,676.1 L548.1,680.4 L546.4,684.7 L544.7,689.0 L543.0,693.3 L541.3,697.6 L539.5,701.9 L537.8,706.2 L536.1,710.5 L534.4,714.8 L532.6,719.1 L530.9,723.3 L529.2,727.6 L527.5,731.8 L525.8,736.0 L524.1,740.2 L522.4,744.3 L520.7,748.5 L519.1,752.5 L517.4,756.6 L515.8,760.6 L514.2,764.6 L512.6,768.5 L511.1,772.4 L509.5,776.2 L508.0,780.0 L506.5,783.7 L505.0,787.4 L503.5,791.1 L502.0,794.8 L500.5,798.4 L499.0,802.0 L497.5,805.6 L496.0,809.1 L494.5,812.6 L493.0,816.1 L491.6,819.6 L490.1,823.0 L488.7,826.4 L487.3,829.8 L485.9,833.1 L484.5,836.4 L483.1,839.7 L481.8,843.0 L480.5,846.2 L479.2,849.4 L477.9,852.6 L476.7,855.8 L475.5,858.9 L474.3,862.0 L473.2,865.1 L472.1,868.1 L471.0,871.1 L469.9,874.1 L469.0,877.1 L468.0,880.0 L467.1,882.9 L466.2,885.9 L465.4,888.9 L464.5,891.8 L463.8,894.8 L463.0,897.8 L462.3,900.8 L461.6,903.7 L460.9,906.7 L460.3,909.6 L459.7,912.5 L459.1,915.4 L458.5,918.2 L458.0,921.0 L457.5,923.8 L457.0,926.4 L456.5,929.0 L456.1,931.6 L455.7,934.1 L455.3,936.5 L454.9,938.8 L454.5,941.0 L454.1,943.2 L453.8,945.2 L453.5,947.1 L453.1,948.9 L452.8,950.6 L452.6,952.2 L452.3,953.7 L452.0,955.0" fill="none" stroke="#FFD23F" stroke-width="136" stroke-linecap="round"/>
 <path d="M660.0,300.0 L659.7,301.9 L659.4,304.1 L659.0,306.5 L658.7,309.1 L658.3,311.9 L657.9,314.8 L657.5,317.9 L657.0,321.2 L656.6,324.6 L656.1,328.1 L655.6,331.8 L655.1,335.6 L654.5,339.5 L654.0,343.5 L653.4,347.5 L652.8,351.6 L652.1,355.8 L651.5,360.0 L650.8,364.2 L650.1,368.5 L649.4,372.8 L648.7,377.1 L647.9,381.4 L647.2,385.6 L646.4,389.8 L645.5,394.0 L644.7,398.1 L643.8,402.1 L642.9,406.1 L642.0,410.0 L641.0,413.8 L640.1,417.7 L639.0,421.6 L638.0,425.5 L636.9,429.4 L635.8,433.3 L634.7,437.2 L633.5,441.2 L632.3,445.1 L631.1,449.1 L629.9,453.1 L628.6,457.0 L627.4,461.0 L626.1,465.0 L624.8,469.1 L623.4,473.1 L622.1,477.1 L620.7,481.2 L619.4,485.2 L618.0,489.3 L616.6,493.3 L615.2,497.4 L613.8,501.4 L612.4,505.5 L611.0,509.6 L609.6,513.7 L608.2,517.8 L606.8,521.8 L605.4,525.9 L604.0,530.0 L602.6,534.1 L601.2,538.2 L599.7,542.3 L598.3,546.4 L596.8,550.5 L595.4,554.7 L593.9,558.8 L592.4,563.0 L590.9,567.1 L589.4,571.3 L587.9,575.5 L586.4,579.6 L584.8,583.8 L583.3,588.0 L581.8,592.2 L580.2,596.4 L578.6,600.6 L577.1,604.8 L575.5,609.0 L573.9,613.1 L572.3,617.3 L570.8,621.5 L569.2,625.7 L567.6,629.9 L566.0,634.1 L564.4,638.3 L562.8,642.5 L561.2,646.7 L559.6,650.8 L558.0,655.0 L556.4,659.2 L554.8,663.4 L553.1,667.6 L551.5,671.9 L549.8,676.1 L548.1,680.4 L546.4,684.7 L544.7,689.0 L543.0,693.3 L541.3,697.6 L539.5,701.9 L537.8,706.2 L536.1,710.5 L534.4,714.8 L532.6,719.1 L530.9,723.3 L529.2,727.6 L527.5,731.8 L525.8,736.0 L524.1,740.2 L522.4,744.3 L520.7,748.5 L519.1,752.5 L517.4,756.6 L515.8,760.6 L514.2,764.6 L512.6,768.5 L511.1,772.4 L509.5,776.2 L508.0,780.0 L506.5,783.7 L505.0,787.4 L503.5,791.1 L502.0,794.8 L500.5,798.4 L499.0,802.0 L497.5,805.6 L496.0,809.1 L494.5,812.6 L493.0,816.1 L491.6,819.6 L490.1,823.0 L488.7,826.4 L487.3,829.8 L485.9,833.1 L484.5,836.4 L483.1,839.7 L481.8,843.0 L480.5,846.2 L479.2,849.4 L477.9,852.6 L476.7,855.8 L475.5,858.9 L474.3,862.0 L473.2,865.1 L472.1,868.1 L471.0,871.1 L469.9,874.1 L469.0,877.1 L468.0,880.0 L467.1,882.9 L466.2,885.9 L465.4,888.9 L464.5,891.8 L463.8,894.8 L463.0,897.8 L462.3,900.8 L461.6,903.7 L460.9,906.7 L460.3,909.6 L459.7,912.5 L459.1,915.4 L458.5,918.2 L458.0,921.0 L457.5,923.8 L457.0,926.4 L456.5,929.0 L456.1,931.6 L455.7,934.1 L455.3,936.5 L454.9,938.8 L454.5,941.0 L454.1,943.2 L453.8,945.2 L453.5,947.1 L453.1,948.9 L452.8,950.6 L452.6,952.2 L452.3,953.7 L452.0,955.0" fill="none" stroke="url(#cord)" stroke-width="122" stroke-linecap="round"/>
@@ -697,6 +1143,8 @@ dialog.req .x{position:absolute;right:14px;top:12px;width:40px;height:40px;borde
 </g>
 <g transform="translate(652 1008)"><rect x="-18" y="-22" width="36" height="24" fill="#8A5A34" stroke="#0D3B7A" stroke-width="2.5"/><path d="M-24-20 L0-38 L24-20Z" fill="#fff" stroke="#0D3B7A" stroke-width="2.5" stroke-linejoin="round"/><rect x="-8" y="-16" width="16" height="10" fill="#FFD46B" stroke="#0D3B7A" stroke-width="1.5"/></g>
 <g transform="translate(714 840) rotate(-75)"><rect x="-74" y="-11" width="148" height="22" rx="11" fill="#fff" stroke="#0D3B7A" stroke-width="2"/><text x="0" y="5" font-size="12" text-anchor="middle" fill="#0D3B7A" font-weight="800" font-family="Barlow Condensed,Arial" letter-spacing="1">TELLERLIFT TENNELADEN</text></g>
+<path d="M-800 1176 C-500 1160 -250 1186 0 1168 V1212 C-250 1222 -500 1206 -800 1220Z M1000 1160 C1250 1150 1500 1172 1800 1160 V1205 C1500 1216 1250 1200 1000 1205Z" fill="#CBD6E3" stroke="#AFBCCD" stroke-width="2"/>
+<path d="M-800 1198 C-500 1182 -250 1206 0 1190 M1000 1182 C1250 1172 1500 1194 1800 1182" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="16 14"/>
 <path d="M0 1168 C200 1150 400 1176 600 1162 C760 1152 880 1170 1000 1160 V1205 C880 1214 760 1196 600 1206 C400 1220 200 1194 0 1212Z" fill="#CBD6E3" stroke="#AFBCCD" stroke-width="2"/>
 <path d="M0 1190 C200 1172 400 1198 600 1184 C760 1174 880 1192 1000 1182" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="16 14"/>
 <g class="hit" data-item="parkplatz">
@@ -738,6 +1186,46 @@ dialog.req .x{position:absolute;right:14px;top:12px;width:40px;height:40px;borde
 <use href="#chalet" transform="translate(800 1250)"/>
 <use href="#chalet" transform="translate(920 1246)"/>
 <use href="#chalet" transform="translate(620 1252)"/>
+<use href="#chalet" transform="translate(-740 1150) scale(.9)"/>
+<use href="#chalet" transform="translate(-660 1140) scale(.9)"/>
+<use href="#chalet" transform="translate(-560 1150) scale(.9)"/>
+<use href="#chalet" transform="translate(-470 1138) scale(.9)"/>
+<use href="#chalet" transform="translate(-380 1150) scale(.9)"/>
+<use href="#chalet" transform="translate(-300 1142) scale(.9)"/>
+<use href="#chalet" transform="translate(-200 1152) scale(.9)"/>
+<use href="#chalet" transform="translate(-110 1146) scale(.9)"/>
+<use href="#chalet" transform="translate(-760 1250) scale(.9)"/>
+<use href="#chalet" transform="translate(-640 1246) scale(.9)"/>
+<use href="#chalet" transform="translate(-520 1252) scale(.9)"/>
+<use href="#chalet" transform="translate(-400 1248) scale(.9)"/>
+<use href="#chalet" transform="translate(-280 1252) scale(.9)"/>
+<use href="#chalet" transform="translate(-160 1246) scale(.9)"/>
+<use href="#chalet" transform="translate(-60 1250) scale(.9)"/>
+<use href="#chalet" transform="translate(1070 1144) scale(.9)"/>
+<use href="#chalet" transform="translate(1290 1150) scale(.9)"/>
+<use href="#chalet" transform="translate(1380 1140) scale(.9)"/>
+<use href="#chalet" transform="translate(1470 1150) scale(.9)"/>
+<use href="#chalet" transform="translate(1560 1142) scale(.9)"/>
+<use href="#chalet" transform="translate(1650 1150) scale(.9)"/>
+<use href="#chalet" transform="translate(1750 1144) scale(.9)"/>
+<use href="#chalet" transform="translate(1060 1250) scale(.9)"/>
+<use href="#chalet" transform="translate(1170 1246) scale(.9)"/>
+<use href="#chalet" transform="translate(1290 1252) scale(.9)"/>
+<use href="#chalet" transform="translate(1420 1248) scale(.9)"/>
+<use href="#chalet" transform="translate(1540 1252) scale(.9)"/>
+<use href="#chalet" transform="translate(1660 1246) scale(.9)"/>
+<use href="#chalet" transform="translate(1770 1250) scale(.9)"/>
+<use href="#chalet" transform="translate(-600 1070) scale(.9)"/>
+<use href="#chalet" transform="translate(-480 1060) scale(.9)"/>
+<use href="#chalet" transform="translate(-330 1080) scale(.9)"/>
+<use href="#chalet" transform="translate(1250 1070) scale(.9)"/>
+<use href="#chalet" transform="translate(1400 1060) scale(.9)"/>
+<use href="#chalet" transform="translate(1560 1075) scale(.9)"/>
+<use href="#chalet" transform="translate(1700 1070) scale(.9)"/>
+<g transform="translate(1180 1150)"><ellipse cx="0" cy="2" rx="44" ry="6" fill="#0D3B7A" opacity=".12"/>
+<rect x="-30" y="-44" width="44" height="46" fill="#F3EDE2" stroke="#0D3B7A" stroke-width="2.5"/><path d="M-36-42 L-8-64 L20-42Z" fill="#C8513A" stroke="#0D3B7A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="14" y="-70" width="20" height="72" fill="#F3EDE2" stroke="#0D3B7A" stroke-width="2.5"/><path d="M12-70 Q24-102 36-70Z" fill="#2E7D5B" stroke="#0D3B7A" stroke-width="2.5"/><path d="M24-100 V-112 M19-107 H29" stroke="#0D3B7A" stroke-width="2"/>
+<circle cx="24" cy="-56" r="5" fill="#fff" stroke="#0D3B7A" stroke-width="1.5"/><path d="M-22-26 a6 6 0 0 1 12 0 V-12 H-22Z M-2-26 a6 6 0 0 1 12 0 V-12 H-2Z" fill="#9CC3EE" stroke="#0D3B7A" stroke-width="1.5"/></g>
 <use href="#chalet" transform="translate(930 1120) scale(.85)"/>
 <use href="#chalet" transform="translate(975 1080) scale(.85)"/>
 <use href="#chalet" transform="translate(30 975) scale(.85)"/>
@@ -1121,11 +1609,11 @@ var ITEMS=[
     $$('#mapsvg .hit').forEach(function(h){var it=byId[h.getAttribute('data-item')];h.classList.toggle('dim',!!it&&filter!=='all'&&it.cat!==filter)});
   })});
   // ===== Pan & Zoom: Karte passt immer auf den Bildschirm, nur Zoomen & Verschieben =====
-  var view=$('#mapview'), stage=$('#stage'), MW=1000, MH=1250, ZMAX=4;
+  var view=$('#mapview'), stage=$('#stage'), MW=1000, MH=1250, WW=2600, CX=800, ZMAX=4; // Kernkarte 1000×1250, Landschaft links/rechts je 800
   var z=1, s0=1, k=1, tx=0, ty=0, vw=0, vh=0;
   function fit(){vw=view.clientWidth;vh=view.clientHeight;s0=Math.min(vw/MW,vh/MH)||1;}
   function clamp(){
-    var W=MW*k,H=MH*k;
+    var W=WW*k,H=MH*k;
     tx=W<=vw?(vw-W)/2:Math.min(0,Math.max(vw-W,tx));
     ty=H<=vh?(vh-H)/2:Math.min(0,Math.max(vh-H,ty));
   }
@@ -1141,7 +1629,7 @@ var ITEMS=[
     nz=Math.max(1,Math.min(ZMAX,nz)); var wx=(cx-tx)/k, wy=(cy-ty)/k;
     z=nz; k=s0*z; tx=cx-wx*k; ty=cy-wy*k; apply(anim); hideHint();
   }
-  function reset(anim){z=1;k=s0;tx=0;ty=0;apply(anim)}
+  function reset(anim){z=1;k=s0;tx=vw/2-(CX+MW/2)*k;ty=0;apply(anim)}
   function relayout(){
     if(!vw){fit();reset(false);return}
     var cx=vw/2,cy=vh/2,wx=(cx-tx)/k,wy=(cy-ty)/k; fit(); k=s0*z; tx=vw/2-wx*k; ty=vh/2-wy*k; apply(false); sizeSnow();
@@ -1194,7 +1682,7 @@ var ITEMS=[
   view.addEventListener('dblclick',function(e){e.preventDefault()});
   // Station in den Blick holen (über dem Handy-Detailfenster)
   function ensureVisible(id,zoomIn){
-    var p=PINS[id]; if(!p)return; var px=p[0]/100*MW, py=p[1]/100*MH;
+    var p=PINS[id]; if(!p)return; var px=CX+p[0]/100*MW, py=p[1]/100*MH;
     var sheet=mobile.matches?Math.min(vh*0.55,Math.max(0,vh-160)):0;
     if((zoomIn||mobile.matches)&&z<2)z=2; k=s0*z; tx=vw/2-px*k; ty=(vh-sheet)/2-py*k+40; apply(true);
   }
