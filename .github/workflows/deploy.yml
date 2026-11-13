@@ -49,3 +49,18 @@ jobs:
           CMDS="set cmd:fail-exit yes; set sftp:auto-confirm yes; set net:max-retries 3; set net:timeout 30; mkdir -p -f '$SFTP_DIR'; mirror --reverse --verbose --parallel=4 --exclude '^\.git/' --exclude '^\.github/' --exclude '^\.gitignore\$' --exclude '^README\.md\$' ./ '$SFTP_DIR'; bye"
           lftp --env-password -u "$SFTP_USER" -e "$CMDS" "sftp://$SFTP_HOST"
           echo "✅ Website ist online."
+
+      - name: Live-Check glonni.de
+        if: always()
+        continue-on-error: true
+        run: |
+          sleep 5
+          echo "== DNS =="
+          for h in glonni.de www.glonni.de; do echo "$h A:    $(dig +short $h A | tr '\n' ' ')"; echo "$h CNAME: $(dig +short $h CNAME | tr '\n' ' ')"; done
+          echo "NS: $(dig +short glonni.de NS | tr '\n' ' ')"
+          for u in https://glonni.de/ https://www.glonni.de/ http://glonni.de/ https://glonni.de/gelaende.html; do
+            echo "== $u =="
+            curl -s -o /dev/null -D - --max-time 20 "$u" | grep -iE '^(HTTP/|server:|www-authenticate:|location:|x-nf-|content-type:)' || echo "keine Antwort"
+          done
+          echo "== Inhalt Startseite (Titel) =="
+          curl -s --max-time 20 https://glonni.de/ | grep -o '<title>[^<]*</title>' || true
