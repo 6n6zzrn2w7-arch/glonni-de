@@ -1,6 +1,6 @@
 # glonni.de – Glonni Cup des WSV Glonn
 
-Statische Website (HTML, ohne Build-Schritt).
+Statische Website (HTML, ohne Build-Schritt). Stand: 13.11.2026
 
 - `index.html` – Startseite
 - `gelaende.html` – Geländeplan & Sponsoring
