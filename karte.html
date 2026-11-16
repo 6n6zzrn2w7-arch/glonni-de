@@ -326,6 +326,9 @@ dialog.req .x{position:absolute;right:14px;top:12px;width:40px;height:40px;borde
 .nav ul a.btn-y,.nav ul a.btn-y:hover{color:#fff;opacity:1}
 @media (prefers-reduced-motion:reduce){.btn::after{animation:none;display:none}}
 </style>
+<script>if(!/[?&]embed/.test(location.search))location.replace("index.html#gelaendeplan");else document.documentElement.classList.add("embed")</script>
+<base target="_top">
+<style>.embed .nav,.embed .allsec,.embed .cta,.embed footer,.embed .more,.embed .ttl{display:none!important}.embed body{background:var(--deep)}.embed .app{height:100vh;height:100svh;padding-top:0}.embed .appgrid{padding:12px}.embed .apphead{justify-content:center}</style>
 </head>
 <body class="mode-visitor">
 
@@ -1502,7 +1505,7 @@ dialog.req .x{position:absolute;right:14px;top:12px;width:40px;height:40px;borde
   <div class="wrap">
     <div class="meta">
       <span>© <span id="yr">2026</span> WSV Glonn · Glonni Cup</span>
-      <span><a href="index.html">Startseite</a><a href="karte.html">Geländeplan</a><a href="gelaende.html">Sponsoring</a><a href="orga-team.html">ORGA Team</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+      <span><a href="index.html">Startseite</a><a href="index.html#gelaendeplan">Geländeplan</a><a href="index.html#orga-team">ORGA Team</a><a href="gelaende.html">Sponsoring</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
     </div>
   </div>
 </footer>
@@ -1609,6 +1612,7 @@ var VITEMS=[
  {id:'foto',cat:'kids',title:'Glonni-Fotopoint',sub:'Selfie mit Glonni',desc:'Hier entstehen die Erinnerungsfotos des Tages, natürlich mit Glonni.'}
 ];
 var MODE=document.body.className.indexOf('mode-visitor')>-1?'visitor':'sponsor';
+var EMBED=document.documentElement.classList.contains('embed');
 var ALIAS={};
 if(MODE==='visitor'){ITEMS=VITEMS;CATS.sponsor='Rennen';ALIAS={banden:'ziel',einfahrt:'parkplatz'};}
 var GROUPS={sponsor:MODE==='visitor'?'Rennen':'Werbeflächen'};
@@ -1763,6 +1767,7 @@ var GROUPS={sponsor:MODE==='visitor'?'Rennen':'Werbeflächen'};
   $('#zfit').addEventListener('click',function(){reset(true)});
   // Mausrad / Trackpad
   view.addEventListener('wheel',function(e){
+    if(EMBED&&!e.ctrlKey&&!e.metaKey)return;
     e.preventDefault(); var r=view.getBoundingClientRect();
     if(e.ctrlKey||Math.abs(e.deltaY)>=Math.abs(e.deltaX)){zoomAt(z*Math.exp(-e.deltaY*(e.ctrlKey?0.01:0.0022)),e.clientX-r.left,e.clientY-r.top,false)}
     else{tx-=e.deltaX;apply(false)}
@@ -1811,7 +1816,7 @@ var GROUPS={sponsor:MODE==='visitor'?'Rennen':'Werbeflächen'};
     if((zoomIn||mobile.matches)&&z<2)z=2; k=s0*z; tx=vw/2-px*k; ty=(vh-sheet)/2-py*k+40; apply(true);
   }
   var hint=$('#hint'); function hideHint(){hint.classList.add('off')}
-  if(!matchMedia('(hover:none)').matches)hint.textContent='Mausrad zum Zoomen · Ziehen zum Verschieben';
+  if(!matchMedia('(hover:none)').matches)hint.textContent=EMBED?'Strg/⌘ + Mausrad oder +/− zum Zoomen · Ziehen zum Verschieben':'Mausrad zum Zoomen · Ziehen zum Verschieben';
   setTimeout(hideHint,5000);
   function setNavH(){document.documentElement.style.setProperty('--navh',$('#nav').offsetHeight+'px')}
   setNavH(); fit(); reset(false);
