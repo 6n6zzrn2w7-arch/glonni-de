@@ -276,7 +276,7 @@ section{position:relative;padding:110px 0}
 
 /* KONZEPT */
 .konzept{background:#EEF0F1;overflow:hidden}
-.konzept::before{content:"";position:absolute;left:-40px;top:-30px;width:min(55vw,520px);aspect-ratio:520/360;background:url(media/halftone-blau.svg) no-repeat 0 0/contain;opacity:.22;pointer-events:none}
+.konzept::before{-webkit-mask-image:linear-gradient(to bottom,transparent 0,transparent 12%,#000 55%);mask-image:linear-gradient(to bottom,transparent 0,transparent 12%,#000 55%);content:"";position:absolute;left:-40px;top:-30px;width:min(55vw,520px);aspect-ratio:520/360;background:url(media/halftone-blau.svg) no-repeat 0 0/contain;opacity:.22;pointer-events:none}
 .konzept .wrap{position:relative}
 .konzept .mia{display:block;width:min(80%,420px);margin:1.4rem auto 0}
 .konzept .center{text-align:center;max-width:760px;margin:0 auto}
@@ -305,7 +305,7 @@ section{position:relative;padding:110px 0}
 
 /* ANMELDUNG */
 .signup{background:linear-gradient(160deg,#1597E0 0%,var(--blue) 45%,#0A6BAA 100%);overflow:hidden;color:#fff;position:relative}
-.signup::before{content:"";position:absolute;right:-60px;top:-40px;width:min(70vw,620px);aspect-ratio:520/360;background:url(media/halftone-hell.svg) no-repeat 100% 0/contain;opacity:.35;transform:scaleX(-1);pointer-events:none}
+.signup::before{-webkit-mask-image:linear-gradient(to bottom,transparent 0,transparent 12%,#000 55%);mask-image:linear-gradient(to bottom,transparent 0,transparent 12%,#000 55%);content:"";position:absolute;right:-60px;top:-40px;width:min(70vw,620px);aspect-ratio:520/360;background:url(media/halftone-hell.svg) no-repeat 100% 0/contain;opacity:.35;transform:scaleX(-1);pointer-events:none}
 .signup .wrap{position:relative;z-index:1}
 .signup .btn-n{background:linear-gradient(180deg,#E5454B 0%,#D22027 52%,#AE151B 100%);box-shadow:inset 0 2px 0 rgba(255,255,255,.5),inset 0 -3px 0 rgba(90,0,0,.3),0 4px 0 #7E0E12,0 10px 22px rgba(4,22,56,.3)}
 .signup .btn-o-n{color:#fff;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 2.5px rgba(255,255,255,.85)}
@@ -333,7 +333,7 @@ section{position:relative;padding:110px 0}
 
 /* FOOTER */
 footer{background:var(--deep);color:#fff;padding:90px 0 40px;position:relative;overflow:hidden}
-footer::before{content:"";position:absolute;left:-30px;top:-20px;width:min(70vw,760px);aspect-ratio:900/160;background:url(media/halftone-band.svg) no-repeat 0 0/contain;opacity:.25;pointer-events:none}
+footer::before{-webkit-mask-image:linear-gradient(to bottom,transparent 0,transparent 12%,#000 55%);mask-image:linear-gradient(to bottom,transparent 0,transparent 12%,#000 55%);content:"";position:absolute;left:-30px;top:-20px;width:min(70vw,760px);aspect-ratio:900/160;background:url(media/halftone-band.svg) no-repeat 0 0/contain;opacity:.25;pointer-events:none}
 footer .wrap{position:relative}
 footer .mia{width:min(100%,380px);margin-top:1.2rem}
 footer .tags{margin-top:.4rem;font-family:var(--display);font-weight:600;letter-spacing:.12em;color:var(--hl);font-size:.95rem}
